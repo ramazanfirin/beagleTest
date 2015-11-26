@@ -5,15 +5,22 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
  
+
+
+
+
 	<h:head>
     </h:head>
     
     <h:body>
-        <h2>Registration form</h2> <br/>
+        <h2>Registration formffff</h2> <br/>
         
         <h:form id="myForm">
 			<h:outputLabel value="#{controller1.name}"> </h:outputLabel>
 			<p:commandButton value="testSerial" action="#{controller1.testSerial}"></p:commandButton>
+			<p:commandButton value="modbus" action="#{modbusController.testModbus}"></p:commandButton>
+			
+			<p:commandButton value="readModbus" action="#{modbusController.readModbus}"></p:commandButton>
 		</h:form>
     </h:body>
 </html>

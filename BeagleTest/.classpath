@@ -33,6 +33,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="bulldog.beagleboneblack.hardfp.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jssc.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/PLCComModBus.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
