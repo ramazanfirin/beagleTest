@@ -21,6 +21,11 @@
 			<p:commandButton value="modbus" action="#{modbusController.testModbus}"></p:commandButton>
 			
 			<p:commandButton value="readModbus" action="#{modbusController.readModbus}"></p:commandButton>
+			
+			  <p:commandButton value="Pi4j Test" action="#{pi4jController.test}"></p:commandButton><br></br>
+			    <p:commandButton value="jssc port list" action="#{jcssController.listPorts}"></p:commandButton>
+			       <p:commandButton value="jssc listen port" action="#{jcssController.listenPort}"></p:commandButton>
+			       <p:commandButton value="jssc send data" action="#{jcssController.send}"></p:commandButton>
 		</h:form>
     </h:body>
 </html>
