@@ -9,6 +9,14 @@ public class BoardController {
 	private String odaBasinci="65";
 	private String filtreBasinci="115";
 	
+	private String sicaklikColor="bg-aqua";
+	
+	public String getSicaklikColor() {
+		return sicaklikColor;
+	}
+	public void setSicaklikColor(String sicaklikColor) {
+		this.sicaklikColor = sicaklikColor;
+	}
 	public String getSicaklik() {
 		return sicaklik;
 	}

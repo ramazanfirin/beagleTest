@@ -1,0 +1,33 @@
+* {
+margin: 0;
+padding: 0;
+borderwidth: 0;
+}
+body {
+color: #000;
+background: #fff url(back.jpg) no-repeat;
+}
+#wrap {
+position: relative;
+width: 680px;
+height: 140px;
+background: url(black.png);
+border: solid 1px #000;
+text-align: left;
+overflow: hidden;
+}
+#wrap img.time {
+float: left;
+}
+#wrap #cover {
+position: absolute;
+top: 0;
+left: 0;
+width: 680px;
+height: 140px;
+background: url(fade.png) repeat-x;
+}
+*html body #wrap #cover {
+width: 0px;
+height: 0px;
+}

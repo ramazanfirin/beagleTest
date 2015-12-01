@@ -1,0 +1,444 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/BebasNeue-webfont.eot');
+    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BebasNeue-webfont.woff') format('woff'),
+         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+.clearfix:before,
+.clearfix:after {
+    content: " "; 
+    display: table; 
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+html{
+  height:100%; 
+}
+
+body{
+  width:100%;
+  height:100%;
+  line-height:32px;
+  font-family:'Lato', sans-serif;
+  font-weight:300;
+  font-size:22px;
+  color:#fff;
+  /* background:#007A3D; */
+  background:url('pattern.png');
+  overflow-x: hidden; 
+  overflow-y: hidden;
+}
+
+h1{
+	font-size:18px;
+}
+
+/* Pages */
+
+#page_home { 
+	overflow-y: auto; 
+	opacity:.9;	
+}
+
+#page_aboutus { 
+	overflow-y: auto; 
+	background: #2FB1BE!important;
+	opacity:.9;	
+}
+
+#page_service { 
+	overflow-y: auto; 
+	background: #EF3A5B!important;
+	opacity:.95;	
+}
+
+#page_portfolio { 
+	overflow-y: auto; 
+	background: #85A9C3!important;
+	opacity:.9;	
+}
+
+#page_contact { 
+	overflow-y: auto; 
+	background: #385E82!important;
+	opacity:.9;	
+}
+/* Pages */
+
+
+p{
+	padding:30px 0;
+}
+
+.big  p, .small p{
+	padding:0;
+}
+
+p.title {
+	font-size:36px;
+	padding:10px 0 0 0;
+}
+
+.title a{
+	float:right;
+	color:#fff;
+}
+
+ul{
+  list-style-type: none;
+}
+.demo-wrapper{
+}
+.dashboard{
+}
+
+/* the wrapper column */
+
+.col1{
+  width:99%; 
+  margin:1em auto;	
+  padding-top:20px;
+  padding-left:1%;
+}
+
+.logo {
+	background: url(logo.png);
+}
+
+
+/* extra */
+
+.menu-font{
+ 
+  font-family:'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+  /* line-height: 32px; */
+  font-size:30px;
+  line-height: 64px;
+}
+
+/* extra */
+
+/* the square boxes */
+
+.big, .small{ 
+  float:left; 
+  margin:0 auto 1%; 
+  color:white;
+  font-size:48px;
+  text-align:center; 
+  height: 156px;
+  font-weight:300;
+  overflow:hidden;
+  padding:1em 1em;
+  cursor:pointer;
+  transition:all 0.5s ease-out;
+  opacity:0.8;
+}
+
+.big:hover, .small:hover{
+  background:white;
+}
+
+
+
+.big{
+  width: 49%;
+  margin-right: 1%;
+ 
+}
+.small{  
+  width: 24%;
+  margin-right: 1%;
+}
+.big p {
+  transition:all 0.3s ease-out;
+}
+.small.last{
+  margin-right:0;
+}
+
+/*icon fonts styles*/
+
+.icon-font{
+  font-weight: bold;
+  font-family:'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+  line-height: 60px;
+  font-size:48px;
+}
+.big .icon-font{
+  float:left;
+}
+
+
+a {
+	text-decoration:none;
+}
+
+/*styling the boxes/thumbs*/
+
+.about-thumb {background:#8BBA30;}
+.about-thumb:hover {color:#8BBA30;}
+
+.service-thumb {background:#EF3A5B;}
+.service-thumb:hover {color:#EF3A5B;}
+
+.portfolio-thumb {background:#85A9C3;}
+.portfolio-thumb:hover {color:#85A9C3;}
+
+.visitus-thumb {background:#04ACAD;}
+.visitus-thumb:hover {color:#04ACAD;}
+
+.rss-thumb {background:#ED8C01;line-height: 66px;}
+.rss-thumb:hover {color:#ED8C01;}
+
+.tw-thumb {background:#C0DEED;line-height: 66px;}
+.tw-thumb:hover {color:#C0DEED;}
+
+.fb-thumb {background:#3B5998; line-height: 66px; font-size: 48px;}
+.fb-thumb:hover {color:#3B5998;}
+
+.gplus-thumb {background:#EF3A5B;line-height: 66px;}
+.gplus-thumb:hover {color:#EF3A5B;}
+
+.shock-thumb {background:#04ACAD; cursor: default;}
+.shock-thumb:hover {color:#04ACAD;}
+
+.mark-thumb {background:#85A9C3; cursor: default;}
+.mark-thumb:hover {color:#85A9C3;}
+
+.four-thumb{background:#8BBA30; cursor: default;}
+.four-thumb:hover{color:#8BBA30;}
+
+.logo-thumb {background:#EF3A5B; font-size:0px;}
+.logo-thumb:hover {color:#EF3A5B;}
+
+.mail-thumb {background:#385E82;line-height: 66px; cursor:default;}
+.mail-thumb:hover{color:#385E82;}
+
+.opps-thumb {background:#2FB1BE; 
+font-family:'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+padding:1.5%;
+cursor: default;
+position:relative;
+}
+.opps-thumb:hover {color:#2FB1BE;}
+
+.opps-thumb p{
+  font-size:32px;
+  line-height:34px;
+
+}
+.opps-thumb-span{
+  display:block;
+}
+.opps-thumb:hover p{
+}
+
+.logo-thumb img{
+	width:200px;
+	max-width:100%;	
+}
+
+#countdown p{
+	font-size:18px;
+	line-height:14px;
+	font-family:'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+}
+
+/* the subscribe form */
+
+.subscribe{ 
+    border: medium none;
+    color: #999999;
+    padding: 5px 7px 4px;
+    width: 220px;
+	background:#FFF;
+	font-family:'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+	font-size:18px;
+	border:0px dashed #ddd;
+	border: 1px solid #ccc;
+	
+}
+
+.subscribe_form {
+	position:relative;
+	width:220px;
+	margin: 28px auto 0;
+}
+
+.submit{
+    border: medium none;
+    border-radius: 7px 7px 7px 7px;
+    color: #979797;
+    padding: 7px;
+    width: 160px;
+	background:eee;
+}
+
+
+#subscribe_button{
+	background:#EF3A5B;
+    border: medium none;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    /* opacity: 0.3; */
+    position: absolute;
+    right: 2px;
+    top: 10px;
+    transition: all 0.3s ease-in-out 0s;
+    width: 68px;
+	color:#fff;
+}
+
+#response {
+    display: block;
+    font-size: 12px;
+    height: 30px;
+    width: 100%;
+	line-height:16px;
+	font-family:Arial;
+	position:absolute;
+}
+
+#contactform table{
+	width:100%;
+}	
+
+#contactform .lbl{
+	width:30%;
+}	
+/* the subscribe form */
+
+.content_title{
+	font-family:'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+	font-size:28px;
+	padding:10px 0;
+}
+
+#inline_content{
+	font-family: 'Open Sans', sans-serif;
+	color:#999999;
+}
+
+/* google map */
+
+.gmap {
+	width:100%;
+	height:100%;
+	min-height:500px;
+	margin-top:20px;
+}
+.gmap_image img {
+	max-width:100%;
+}
+
+.gm-style-iw{
+	width:150px;
+	height:100px;
+	color:#385E82;
+}
+
+/*======================= media queries =======================*/
+
+
+
+@media screen and (min-width: 64em){
+   .col1{
+    margin: 0 auto;
+    width:848px;
+  } 
+  
+}
+
+
+
+@media screen and (max-width: 800px){
+
+.opps-thumb p{
+	line-height:24px;
+	font-size:24px;
+}
+
+.menu-font {
+	line-height:48px;
+	font-size:16px;
+}
+
+}
+
+@media screen and (max-width: 599px){
+
+  .big, .small{
+	padding:0.4em 0.2em;
+	height: 78px;
+	font-size:32px;
+	
+  }
+  
+.opps-thumb p{
+  font-size:18px;
+  line-height:18px;
+}  
+  
+
+.opps-thumb form {
+	display:none;
+}
+
+.icon-font{
+
+  line-height:36px;
+  font-size:36px;
+} 
+  
+}
+
+@media screen and (max-width: 320px){
+.col1 {
+    width: 280px;
+}
+
+}
+/*======================= media queries =======================*/
+
+/* Preloader */
+#preloader {
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color:#fff; /* change if the mask should have another color then white */
+	z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+	width:200px;
+	height:200px;
+	position:absolute;
+	left:50%; /* centers the loading animation horizontally one the screen */
+	top:50%; /* centers the loading animation vertically one the screen */
+	background-image:url(status.gif); /* path to your loading animation */
+	background-repeat:no-repeat;
+	background-position:center;
+	margin:-100px 0 0 -100px; /* is width and height divided by two */
+}
+/* Preloader */
