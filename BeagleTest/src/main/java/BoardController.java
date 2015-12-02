@@ -1,6 +1,8 @@
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import model.Lamba;
+
 @ManagedBean
 @ApplicationScoped
 public class BoardController {
@@ -10,6 +12,8 @@ public class BoardController {
 	private String filtreBasinci="115";
 	
 	private String sicaklikColor="bg-aqua";
+	
+	
 	
 	public String getSicaklikColor() {
 		return sicaklikColor;
