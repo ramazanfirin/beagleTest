@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	 xmlns:b="http://bootsfaces.net/ui"
+	>
+<h:body>
+	<ui:composition template="/tags/layout.xhtml">
+		<ui:define name="content">
+		
+		
+		<section class="content">
+          <!-- Small boxes (Stat box) -->
+        
+       
+         
+         <div class="row">
+             <div class="col-md-12">
+              <div class="box box-default box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Telefon</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div><!-- /.box-tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                
+                
+            
+            
+            <div class="col-lg-6 col-xs-6">
+              <!-- small box -->
+              <h:form>          
+               <h:inputText></h:inputText>
+               <div>
+                <p:commandButton  value="1"  style="width:50px;height:50px"></p:commandButton>
+                 <p:commandButton  value="2"  style="width:50px;height:50px"></p:commandButton>
+                  <p:commandButton  value="3"  style="width:50px;height:50px"></p:commandButton>
+               </div>
+               <div>
+                <p:commandButton  value="4"  style="width:50px;height:50px"></p:commandButton>
+                 <p:commandButton  value="5"  style="width:50px;height:50px"></p:commandButton>
+                  <p:commandButton  value="6"  style="width:50px;height:50px"></p:commandButton>
+               </div>
+               <div>
+                <p:commandButton  value="7"  style="width:50px;height:50px"></p:commandButton>
+                 <p:commandButton  value="8"  style="width:50px;height:50px"></p:commandButton>
+                  <p:commandButton  value="9"  style="width:50px;height:50px"></p:commandButton>
+               </div>
+                <div>
+                <p:commandButton  value="x"    style="width:50px;height:50px"></p:commandButton>
+                 <p:commandButton  value="0"  style="width:50px;height:50px"></p:commandButton>
+                  <p:commandButton  value="#"  style="width:50px;height:50px"></p:commandButton>
+               </div>
+        			
+        			 <p:commandButton  value="Temizle"  ></p:commandButton>
+        			 <p:commandButton  value="Çevir"  ></p:commandButton>	
+              </h:form>
+            </div><!-- ./col -->
+            
+            
+           
+            
+          
+          </div><!-- /.row -->
+          
+          </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+        
+        
+        
+        
+         <div class="col-lg-3 col-xs-3">
+          <h:form>
+          <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+                <div class="inner">
+                  <h3>1</h3>
+                  <p>1</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
+              </h:commandLink>
+              
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+                <div class="inner">
+                  <h3>1</h3>
+                  <p>1</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
+              </h:commandLink>
+              
+              </h:form>
+         </div>
+            
+            
+			</section>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

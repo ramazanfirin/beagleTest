@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="/tags/layout.xhtml">
+		<ui:define name="content">
+		
+		
+		<section class="content">
+          <!-- Small boxes (Stat box) -->
+        
+       
+         
+         <div class="row">
+             <div class="col-md-12">
+              <div class="box box-default box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Saat ayarları</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div><!-- /.box-tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                
+                
+            
+            
+            <div class="col-lg-3 col-xs-3">
+              <!-- small box -->
+              <h:form>          
+              <p:calendar id="inline" value="#{dateController.date}" mode="inline"  />
+              <p:calendar id="time" value="#{dateController.time}" pattern="HH:mm" timeOnly="true"  />
+              </h:form>
+            </div><!-- ./col -->
+            
+            <div class="col-lg-3 col-xs-3">
+              <!-- small box -->
+              <h:form>
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+                <div class="inner">
+                  <h3>Timer</h3>
+                  <p>Start/Stop</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
+              </h:commandLink>
+              </h:form>
+            </div><!-- ./col -->
+            
+           
+            
+          
+          </div><!-- /.row -->
+          
+          </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          
+          
+         
+          
+         
+             
+         
+
+            
+            
+			</section>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
