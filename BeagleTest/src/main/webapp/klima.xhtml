@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="/tags/layout.xhtml">
+		<ui:define name="content">
+		
+		
+		<section class="content">
+          <!-- Small boxes (Stat box) -->
+        
+       
+         
+         <div class="row">
+             <div class="col-md-12">
+              <div class="box box-default box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Klima Durumu</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div><!-- /.box-tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                
+                
+            
+            
+            <div class="col-lg-3 col-xs-3">
+              <!-- small box -->
+              <h:form>          
+              <h:commandLink styleClass="small-box #{klimaController.klima.status eq 'TAM_DEBI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusTamDebi}">
+                <div class="inner">
+                  <h3>Klima</h3>
+                  <p>Tam Debi</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
+              </h:commandLink>
+              </h:form>
+            </div><!-- ./col -->
+            
+            <div class="col-lg-3 col-xs-3">
+              <!-- small box -->
+              <h:form>
+              <h:commandLink styleClass="small-box #{klimaController.klima.status eq 'YARIM_DEBI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusYarimDebi}">
+                <div class="inner">
+                  <h3>Klima</h3>
+                  <p>Yarım Debi</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
+              </h:commandLink>
+              </h:form>
+            </div><!-- ./col -->
+            
+            <div class="col-lg-3 col-xs-3">
+              <!-- small box -->
+              <h:form>
+              <h:commandLink styleClass="small-box #{klimaController.klima.status eq 'KAPALI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusKapali}">
+                <div class="inner">
+                  <h3>Klima</h3>
+                  <p>Kapalı</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
+              </h:commandLink>
+              </h:form>
+            </div><!-- ./col -->
+            
+          
+          </div><!-- /.row -->
+          
+          </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          
+          
+         
+          
+         
+             
+         
+          <div class="row">
+             <div class="col-md-12">
+              <div class="box box-default box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Klima Isıtıcı Durumu</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div><!-- /.box-tools -->
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                
+                
+            
+            
+            <div class="col-lg-3 col-xs-3">
+              <!-- small box -->
+              <h:form>
+              <h:commandLink styleClass="small-box #{klimaController.klima.isiticiStatus.color}" action="#{klimaController.changeKlimaStatusIsitici}">
+                <div class="inner">
+                  <h3>Isıtıcı</h3>
+                  <p>#{klimaController.klima.isiticiStatus.message}</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
+              </h:commandLink>
+              </h:form>
+            </div><!-- ./col -->
+            
+            
+            
+           
+         
+          </div><!-- /.row -->
+          
+          </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          
+            
+            
+            
+            
+            
+            
+			</section>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
