@@ -2,7 +2,7 @@ package model;
 
 import constants.Constants;
 
-public class BaseToggleButton {
+public class BaseToggleButton extends BaseModel{
 	Boolean status=false;
 	
 	public Boolean getStatus() {
@@ -14,9 +14,9 @@ public class BaseToggleButton {
 	
 	public String getColor() {
 		if(status)
-			return Constants.COLOR_AQUA;
+			return selectedColor;
 		else
-			return Constants.COLOR_RED;
+			return unselectedColor;
 	}
 	
 	public String getMessage() {

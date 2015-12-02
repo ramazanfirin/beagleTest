@@ -2,7 +2,7 @@ package model;
 
 import constants.Constants;
 
-public class Klima {
+public class Klima extends BaseModel{
 
 	public enum STATUS
 	{
@@ -11,9 +11,6 @@ public class Klima {
 	
 	private STATUS status;
 	private BaseToggleButton isiticiStatus = new BaseToggleButton();
-	
-	private String selectedColor = Constants.COLOR_AQUA;
-	private String unselectedColor =Constants.COLOR_RED;
 	
 	public STATUS getStatus() {
 		return status;
@@ -31,21 +28,5 @@ public class Klima {
 		this.isiticiStatus = isiticiStatus;
 	}
 
-	public String getSelectedColor() {
-		return selectedColor;
-	}
 
-	public void setSelectedColor(String selectedColor) {
-		this.selectedColor = selectedColor;
-	}
-
-	public String getUnselectedColor() {
-		return unselectedColor;
-	}
-
-	public void setUnselectedColor(String unselectedColor) {
-		this.unselectedColor = unselectedColor;
-	}
-
-	
 }
