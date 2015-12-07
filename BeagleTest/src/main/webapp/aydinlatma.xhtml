@@ -32,8 +32,8 @@
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
-              <h:form>
-              <h:commandLink styleClass="small-box #{aydinlatmaController.lamba1.color}" action="#{aydinlatmaController.changeLamba1Status}">
+              <h:form id="form1">
+              <p:commandLink id="lamba1" process="lamba1" update="lamba1" styleClass="small-box #{aydinlatmaController.lamba1.color}" action="#{aydinlatmaController.changeLamba1Status}">
                 <div class="inner">
                   <h3>Lamba1</h3>
                   <p>#{aydinlatmaController.lamba1.message}</p>
@@ -42,14 +42,14 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{aydinlatmaController.lamba2.color}" action="#{aydinlatmaController.changeLamba2Status}">
+              <p:commandLink id="lamba2" process="lamba2" update="lamba2" styleClass="small-box #{aydinlatmaController.lamba2.color}" action="#{aydinlatmaController.changeLamba2Status}">
                 <div class="inner">
                   <h3>Lamba2</h3>
                   <p>#{aydinlatmaController.lamba2.message}</p>
@@ -58,14 +58,14 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{aydinlatmaController.lamba3.color}" action="#{aydinlatmaController.changeLamba3Status}">
+              <p:commandLink id="lamba3" process="lamba3" update="lamba3" styleClass="small-box #{aydinlatmaController.lamba3.color}" action="#{aydinlatmaController.changeLamba3Status}">
                 <div class="inner">
                   <h3>Lamba3</h3>
                   <p>#{aydinlatmaController.lamba3.message}</p>
@@ -74,14 +74,14 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{aydinlatmaController.lamba4.color}" action="#{aydinlatmaController.changeLamba4Status}">
+              <p:commandLink id="lamba4" process="lamba4" update="lamba4" styleClass="small-box #{aydinlatmaController.lamba4.color}" action="#{aydinlatmaController.changeLamba4Status}">
                 <div class="inner">
                   <h3>Lamba4</h3>
                   <p>#{aydinlatmaController.lamba4.message}</p>
@@ -90,7 +90,7 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
           </div><!-- /.row -->
@@ -122,7 +122,7 @@
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{aydinlatmaController.operasyonLamba1.color}" action="#{aydinlatmaController.changeOperasyonLamba1Status}">
+              <p:commandLink id="Operasyon1" process="Operasyon1" update="Operasyon1" styleClass="small-box #{aydinlatmaController.operasyonLamba1.color}" action="#{aydinlatmaController.changeOperasyonLamba1Status}">
                 <div class="inner">
                   <h3>Operasyon1</h3>
                   <p>#{aydinlatmaController.operasyonLamba1.message}</p>
@@ -131,14 +131,14 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{aydinlatmaController.operasyonLamba2.color}" action="#{aydinlatmaController.changeOperasyonLamba2Status}">
+              <p:commandLink id="Operasyon2" process="Operasyon2" update="Operasyon2" styleClass="small-box #{aydinlatmaController.operasyonLamba2.color}" action="#{aydinlatmaController.changeOperasyonLamba2Status}">
                 <div class="inner">
                   <h3>Operasyon2</h3>
                   <p>#{aydinlatmaController.operasyonLamba2.message}</p>
@@ -147,14 +147,14 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{aydinlatmaController.uvLamba.color}" action="#{aydinlatmaController.changeUvLambaStatus}">
+              <p:commandLink id="uvlamba" process="uvlamba" update="uvlamba" styleClass="small-box #{aydinlatmaController.uvLamba.color}" action="#{aydinlatmaController.changeUvLambaStatus}">
                 <div class="inner">
                   <h3>UV Lamba</h3>
                   <p>#{aydinlatmaController.uvLamba.message}</p>
@@ -163,23 +163,23 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{aydinlatmaController.negLamba.color}" action="#{aydinlatmaController.changeNegLambaStatus}">
+              <p:commandLink  id="neglamba" process="neglamba" update="neglamba" styleClass="small-box #{aydinlatmaController.negLamba.color}" action="#{aydinlatmaController.changeNegLambaStatus}">
                 <div class="inner">
                   <h3>Neg Lamba</h3>
                   <p>#{aydinlatmaController.negLamba.message}</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  p<i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
           </div><!-- /.row -->

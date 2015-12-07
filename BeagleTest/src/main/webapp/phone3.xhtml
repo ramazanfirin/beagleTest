@@ -5,8 +5,18 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+
+
+
+
+</h:head>
 <h:body>
+	
+	
 	<ui:composition template="/tags/layout.xhtml">
 		<ui:define name="content">
 		
@@ -28,7 +38,11 @@
                 <div class="box-body">
                  <div class="row">
                  	<div class="col-lg-6 col-xs-6">
-                 	<h:inputText style="width:350px;heigth:100px;overflow:auto"></h:inputText>
+                 	<h:inputText id="telno"  style="width:350px;heigth:200px;overflow:auto;color:black;font-size: xx-large;">
+                 		
+                 	</h:inputText>
+                 	
+                 	
                  	</div>
                  </div>
                  <br />
@@ -40,7 +54,7 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>          
-              <h:commandLink styleClass="small-box #{klimaController.klima.selectedColor}" action="#{timerController.reset}">
+              <p:commandLink styleClass="small-box #{klimaController.klima.selectedColor}" onclick="add('1');return false" ajax="true">
                 <div class="inner">
                   <h3>1</h3>
                   <p></p>
@@ -49,14 +63,14 @@
                   <i class="ion ion-bag"></i>
                 </div>
               
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" onclick="add('2');return false" ajax="true">
                 <div class="inner">
                   <h3>2</h3>
                   <p></p>
@@ -72,7 +86,7 @@
            <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" onclick="add('3');return false">
                 <div class="inner">
                   <h3>3</h3>
                   <p></p>
@@ -96,7 +110,7 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>          
-              <h:commandLink styleClass="small-box #{klimaController.klima.selectedColor}" action="#{timerController.reset}">
+              <h:commandLink styleClass="small-box #{klimaController.klima.selectedColor}" onclick="add('4');return false">
                 <div class="inner">
                   <h3>4</h3>
                   <p></p>
@@ -112,7 +126,7 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" onclick="add('5');return false">
                 <div class="inner">
                   <h3>5</h3>
                   <p></p>
@@ -128,7 +142,7 @@
            <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" onclick="add('6');return false">
                 <div class="inner">
                   <h3>6</h3>
                   <p></p>
@@ -152,7 +166,7 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>          
-              <h:commandLink styleClass="small-box #{klimaController.klima.selectedColor}" action="#{timerController.reset}">
+              <h:commandLink styleClass="small-box #{klimaController.klima.selectedColor}" onclick="add('7');return false">
                 <div class="inner">
                   <h3>7</h3>
                   <p></p>
@@ -168,7 +182,7 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" onclick="add('8');return false">
                 <div class="inner">
                   <h3>8</h3>
                   <p></p>
@@ -184,7 +198,7 @@
            <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" onclick="add('9');return false">
                 <div class="inner">
                   <h3>9</h3>
                   <p></p>
@@ -207,9 +221,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>          
-              <h:commandLink styleClass="small-box #{klimaController.klima.selectedColor}" action="#{timerController.reset}">
+              <h:commandLink styleClass="small-box #{klimaController.klima.selectedColor}" onclick="deleteTel();return false">
                 <div class="inner">
-                  <h3>*</h3>
+                  <h3>Sil</h3>
                   <p></p>
                 </div>
                 <div class="icon">
@@ -223,7 +237,7 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" onclick="add('0');return false">
                 <div class="inner">
                   <h3>0</h3>
                   <p></p>
@@ -239,16 +253,16 @@
            <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <h:form>
-              <h:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" action="#{timerController.startStop}">
+              <p:commandLink styleClass="small-box #{ klimaController.klima.selectedColor}" >
                 <div class="inner">
-                  <h3>#</h3>
+                  <h3>Ara</h3>
                   <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
               
-              </h:commandLink>
+              </p:commandLink>
               </h:form>
             </div><!-- ./col -->
             
