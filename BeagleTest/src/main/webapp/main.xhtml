@@ -10,10 +10,13 @@
 	<ui:composition template="/tags/layout.xhtml">
 		<ui:define name="content">
 		
+		  <h:form>
+     	<p:poll interval="3" listener="#{boardController.update}"   update="@form" />
+    
 		
 		<section class="content">
           <!-- Small boxes (Stat box) -->
-        
+
        
          
          <div class="row">
@@ -34,7 +37,7 @@
               <!-- small box -->
               <div class="small-box #{boardController.sicaklikColor}">
                 <div class="inner">
-                  <h3>#{boardController.sicaklik}</h3>
+                  <h3><h:outputLabel value="#{boardController.sicaklik}"></h:outputLabel></h3>
                   <p>Sıcaklık</p>
                 </div>
                 <div class="icon">
@@ -48,7 +51,7 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>#{boardController.nem}<sup style="font-size: 20px">%</sup></h3>
+                  <h3><h:outputLabel value="#{boardController.nem}"></h:outputLabel><sup style="font-size: 20px">%</sup></h3>
                   <p>Nem</p>
                 </div>
                 <div class="icon">
@@ -62,7 +65,7 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>#{boardController.odaBasinci}</h3>
+                  <h3><h:outputLabel value="#{boardController.odaBasinci}"></h:outputLabel></h3>
                   <p>Oda Basıncı</p>
                 </div>
                 <div class="icon">
@@ -76,7 +79,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>#{boardController.odaBasinci}</h3>
+                  <h3><h:outputLabel value="#{boardController.odaBasinci}"/> </h3>
                   <p>Filltre Basıncı</p>
                 </div>
                 <div class="icon">
@@ -114,7 +117,7 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>N20<sup style="font-size: 20px"></sup></h3>
-                  <p>Normal</p>
+                  <p><h:outputLabel value="#{boardController.n20}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -128,7 +131,7 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>Air5<sup style="font-size: 20px"></sup></h3>
-                  <p>Normal</p>
+                  <p><h:outputLabel value="#{boardController.air5}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -142,7 +145,7 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>O2<sup style="font-size: 20px"></sup></h3>
-                  <p>Normal</p>
+                  <p><h:outputLabel value="#{boardController.o2}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -156,7 +159,7 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>VAC<sup style="font-size: 20px"></sup></h3>
-                  <p>Normal</p>
+                  <p><h:outputLabel value="#{boardController.vac}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -170,7 +173,7 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>CO2<sup style="font-size: 20px">%</sup></h3>
-                  <p>Normal</p>
+                  <p><h:outputLabel value="#{boardController.co2}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -184,7 +187,7 @@
               <div class="small-box bg-red">
                 <div class="inner">
                   <h3>ABC<sup style="font-size: 20px">%</sup></h3>
-                  <p>ALARM</p>
+                  <p><h:outputLabel value="#{boardController.abc}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -208,9 +211,9 @@
             
 
             
-            
-            
+         
 			</section>
+			 </h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

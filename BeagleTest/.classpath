@@ -35,5 +35,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jssc.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/PLCComModBus.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/modbus-mini-0.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

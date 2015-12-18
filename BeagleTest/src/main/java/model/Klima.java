@@ -1,6 +1,5 @@
 package model;
 
-import constants.Constants;
 
 public class Klima extends BaseModel{
 
