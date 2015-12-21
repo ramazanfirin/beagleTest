@@ -10,7 +10,8 @@
 	<ui:composition template="/tags/layout.xhtml">
 		<ui:define name="content">
 		
-		
+		  <h:form>
+     	<p:poll interval="3" listener="#{aydinlatmaController.update}"   update="@form" />
 		<section class="content">
           <!-- Small boxes (Stat box) -->
         
@@ -195,6 +196,7 @@
             
             
 			</section>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

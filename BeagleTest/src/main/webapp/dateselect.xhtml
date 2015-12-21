@@ -10,7 +10,9 @@
 	<ui:composition template="/tags/layout.xhtml">
 		<ui:define name="content">
 		
-		
+		 <h:form> 
+		 <p:poll interval="3" listener="#{aydinlatmaController.update}"   update="@form" />
+		 <h:messages />
 		<section class="content">
           <!-- Small boxes (Stat box) -->
         
@@ -39,13 +41,21 @@
              
              <div class="form-group">
                       <label for="exampleInputEmail1">Saat </label><br></br>
-                       <p:keyboard  keypadOnly="true" placeholder="Saat" size="10"></p:keyboard>
-                       <p:keyboard  keypadOnly="true" placeholder="Dakika" size="10"></p:keyboard>
+                       <p:keyboard value="#{dateController.saat}" keypadOnly="true" placeholder="Saat" size="10">
+                       		<f:validateLongRange minimum="0" maximum="23" />
+                       </p:keyboard>
+                       <p:keyboard  value="#{dateController.dakika}" keypadOnly="true" placeholder="Dakika" size="10">
+                       		<f:validateLongRange minimum="0" maximum="59" />
+                       </p:keyboard>
+                       
+                       <p:keyboard value="#{dateController.saniye}" keypadOnly="true" placeholder="Saniye" size="10">
+                       		<f:validateLongRange minimum="0" maximum="59" />
+                       </p:keyboard>
              </div>  
-             
-              <h:form>          
+             <p:commandButton value="kaydet" action="#{dateController.save}"></p:commandButton>
+                      
               
-              </h:form>
+             
             </div><!-- ./col -->
             
             
@@ -69,6 +79,7 @@
             
             
 			</section>
+			 </h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

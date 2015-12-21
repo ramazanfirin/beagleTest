@@ -1,11 +1,12 @@
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import model.Lamba;
+import constants.Constants;
 
 @ManagedBean
-@ApplicationScoped
-public class AydinlatmaController {
+@RequestScoped
+public class AydinlatmaController extends BaseController {
 	
 Lamba lamba1= new Lamba();	
 Lamba lamba2= new Lamba();	
@@ -16,6 +17,27 @@ Lamba operasyonLamba1= new Lamba();
 Lamba operasyonLamba2= new Lamba();	
 Lamba uvLamba= new Lamba();	
 Lamba negLamba= new Lamba();	
+
+@Override
+void prepareData() {
+	lamba1.setStatus(translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_1])));
+	lamba2.setStatus(translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_2])));
+	lamba3.setStatus(translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_3])));
+	lamba4.setStatus(translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_4])));
+	
+	operasyonLamba1.setStatus(translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_5])));
+	operasyonLamba2.setStatus(translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_6])));
+	uvLamba.setStatus(translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_7])));
+	negLamba.setStatus(translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_8])));
+	
+}
+
+public Boolean translate(String a){
+	if(a.equals("0"))
+		return true;
+	else
+		return false;
+}
 
 public void changeLamba1Status(){
 	lamba1.setStatus(!lamba1.getStatus());
@@ -105,4 +127,6 @@ public Lamba getNegLamba() {
 public void setNegLamba(Lamba negLamba) {
 	this.negLamba = negLamba;
 }
+
+
 }

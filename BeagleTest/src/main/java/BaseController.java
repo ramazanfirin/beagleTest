@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -15,11 +16,16 @@ public abstract class BaseController {
 	public DataController dataController;
 	
 	abstract void prepareData();
+	@PostConstruct
+	void init(){
+		prepareData();
+	}
 	
 	public void update() throws IOException{
 		prepareData();
 		checkAlarm();
 	}
+	
 	
 	public void checkAlarm() throws IOException{
 		if(dataController.getModbusValues()[Constants.ANALOG_INPUT_1]>10){
