@@ -1,8 +1,11 @@
+import java.io.IOException;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import model.Lamba;
 import constants.Constants;
+import constants.Util;
 
 @ManagedBean
 @RequestScoped
@@ -39,29 +42,37 @@ public Boolean translate(String a){
 		return false;
 }
 
-public void changeLamba1Status(){
+public void changeLamba1Status() throws IOException{
+	saveModbus(Constants.ANALOG_OUTPUT_1, Util.translate(!lamba1.getStatus()));
 	lamba1.setStatus(!lamba1.getStatus());
 }
 
-public void changeLamba2Status(){
+public void changeLamba2Status() throws IOException{
+	saveModbus(Constants.ANALOG_OUTPUT_2, Util.translate(!lamba2.getStatus()));
 	lamba2.setStatus(!lamba2.getStatus());
 }
-public void changeLamba3Status(){
+public void changeLamba3Status() throws IOException{
+	saveModbus(Constants.ANALOG_OUTPUT_3, Util.translate(!lamba3.getStatus()));
 	lamba3.setStatus(!lamba3.getStatus());
 }
-public void changeLamba4Status(){
+public void changeLamba4Status() throws IOException{
+	saveModbus(Constants.ANALOG_OUTPUT_4, Util.translate(!lamba4.getStatus()));
 	lamba4.setStatus(!lamba4.getStatus());
 }
-public void changeOperasyonLamba1Status(){
+public void changeOperasyonLamba1Status() throws IOException{
+	saveModbus(Constants.ANALOG_OUTPUT_5, Util.translate(!operasyonLamba1.getStatus()));
 	operasyonLamba1.setStatus(!operasyonLamba1.getStatus());
 }
-public void changeOperasyonLamba2Status(){
+public void changeOperasyonLamba2Status() throws IOException{
+	saveModbus(Constants.ANALOG_OUTPUT_6, Util.translate(!operasyonLamba2.getStatus()));
 	operasyonLamba2.setStatus(!operasyonLamba2.getStatus());
 }
-public void changeUvLambaStatus(){
+public void changeUvLambaStatus() throws IOException{
+	saveModbus(Constants.ANALOG_OUTPUT_7, Util.translate(!uvLamba.getStatus()));
 	uvLamba.setStatus(!uvLamba.getStatus());
 }
-public void changeNegLambaStatus(){
+public void changeNegLambaStatus() throws IOException{
+	saveModbus(Constants.ANALOG_OUTPUT_8, Util.translate(!negLamba.getStatus()));
 	negLamba.setStatus(!negLamba.getStatus());
 }
 public Lamba getLamba1() {

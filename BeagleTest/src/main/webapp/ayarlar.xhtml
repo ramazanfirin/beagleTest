@@ -9,6 +9,8 @@
 <h:body>
 	<ui:composition template="/tags/layout.xhtml">
 		<ui:define name="content">
+				<h:form id="form1">
+		<p:growl id="message" life="2000"/>
 		
 		<section class="content">
           <!-- Small boxes (Stat box) -->
@@ -39,9 +41,12 @@
                    
 
                       <label for="exampleInputEmail1">Oda Basıncı2 : </label><br></br>
-                     <p:keyboard  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
+                     <p:keyboard  keypadOnly="true" placeholder="Min" size="10">
+                     	<f:validateLongRange minimum="0" maximum="4000" />
+                     </p:keyboard>
                       <label for="exampleInputEmail1"> -   </label>
                       <p:keyboard  keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                      <p:commandButton value="Kayset" action="#{ayarlarController.saveOdaBasinci}"></p:commandButton>
                     </div>
                     
               
@@ -51,6 +56,7 @@
                       <p:keyboard  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
                       <label for="exampleInputEmail1"> -   </label>
                        <p:keyboard  keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                       <p:commandButton value="Kaydet" action="#{ayarlarController.saveOdaSicakligi}"></p:commandButton>
                     </div>    
                      
                     
@@ -106,6 +112,7 @@
             
             
 			</section>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

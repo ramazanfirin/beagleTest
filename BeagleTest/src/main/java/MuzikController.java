@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -28,19 +30,23 @@ public class MuzikController extends BaseController{
 		
 	}
 	
-	public void setChannel1(){
+	public void setChannel1() throws IOException{
+		saveModbus(Constants.AUDIO_CHANNEL_SELECT,1);
 		muzik.setChannel(Muzik.CHANNEL.KANAL_1);
 	}
 	
-	public void setChannel2(){
+	public void setChannel2() throws IOException{
+		saveModbus(Constants.AUDIO_CHANNEL_SELECT,2);
 		muzik.setChannel(Muzik.CHANNEL.KANAL_2);	
 	}
 
-	public void setChannel3(){
+	public void setChannel3() throws IOException{
+		saveModbus(Constants.AUDIO_CHANNEL_SELECT,3);
 		muzik.setChannel(Muzik.CHANNEL.KANAL_3);
 	}
 	
-	public void setChannel4(){
+	public void setChannel4() throws IOException{
+		saveModbus(Constants.AUDIO_CHANNEL_SELECT,4);
 		muzik.setChannel(Muzik.CHANNEL.KANAL_4);
 	}
 	

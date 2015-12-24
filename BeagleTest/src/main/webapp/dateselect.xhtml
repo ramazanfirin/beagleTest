@@ -42,8 +42,9 @@
              <div class="form-group">
                       <label for="exampleInputEmail1">Saat </label><br></br>
                        <p:keyboard value="#{dateController.saat}" keypadOnly="true" placeholder="Saat" size="10">
-                       		<f:validateLongRange minimum="0" maximum="23" />
+<!--                        		<f:validateLongRange minimum="0" maximum="23" /> -->
                        </p:keyboard>
+                       <br></br>
                        <p:keyboard  value="#{dateController.dakika}" keypadOnly="true" placeholder="Dakika" size="10">
                        		<f:validateLongRange minimum="0" maximum="59" />
                        </p:keyboard>

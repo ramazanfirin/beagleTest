@@ -5,17 +5,13 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
-import jssc.SerialPort;
 import ua.com.certa.modbus.AModbusClient;
-import ua.com.certa.modbus.ModbusRtuClientJssc;
 import ua.com.certa.modbus.ModbusTcpClient;
-import constants.Constants;
 
 @ManagedBean(name="dataController")
 @ApplicationScoped
@@ -63,9 +59,8 @@ public class DataController {
 		if (mc.getResult() == AModbusClient.RESULT_OK){
 			for (int i = 0; i < mc.getResponseCount(); i++)
 				modbusValues[i]= mc.getResponseRegister(mc.getResponseAddress() + i);
-			System.out.println(modbusValues[89]);
-		}else
-			System.out.println("error");
+			}else
+				System.out.println("error");
 		
 		
 	} catch (Exception e) {
@@ -73,12 +68,15 @@ public class DataController {
 		e.printStackTrace();
 	}finally{
 		mc.close();
-		System.out.println("Modbus cihaz okundu.");
+		System.out.println("Modbus Okundu");
 	}
 	
 
 	}
 	
+	public void readModbus(){
+		
+	}
 	
 	
 	public void saveModbus(int address,int value) throws IOException{
@@ -90,7 +88,9 @@ public class DataController {
 		try {
 			mc.execRequest();
 			if (mc.getResult() == AModbusClient.RESULT_OK){
-				
+				modbusValues[address]=value;
+				FacesContext context = FacesContext.getCurrentInstance();
+				context.addMessage(null, new FacesMessage("Successful,"+address +"="+ value) );
 			}else
 				System.out.println("error");
 			
@@ -100,6 +100,7 @@ public class DataController {
 			e.printStackTrace();
 		}finally{
 			mc.close();
+			System.out.println("Modbus yazildi");
 		}
 		startTask();
 	}

@@ -33,8 +33,8 @@
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
-              <h:form>          
-              <h:commandLink styleClass="small-box #{klimaController.klima.status eq 'TAM_DEBI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusTamDebi}">
+                     
+              <p:commandLink id="button1" update="button1,button2,button3" styleClass="small-box #{klimaController.klima.status eq 'TAM_DEBI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusTamDebi}">
                 <div class="inner">
                   <h3>Klima</h3>
                   <p>Tam Debi</p>
@@ -43,14 +43,14 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
-              </h:form>
+              </p:commandLink>
+            
             </div><!-- ./col -->
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
-              <h:form>
-              <h:commandLink styleClass="small-box #{klimaController.klima.status eq 'YARIM_DEBI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusYarimDebi}">
+              
+              <p:commandLink id="button2" update="button1,button2,button3" styleClass="small-box #{klimaController.klima.status eq 'YARIM_DEBI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusYarimDebi}">
                 <div class="inner">
                   <h3>Klima</h3>
                   <p>Yarım Debi</p>
@@ -59,14 +59,14 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
-              </h:form>
+              </p:commandLink>
+             
             </div><!-- ./col -->
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
-              <h:form>
-              <h:commandLink styleClass="small-box #{klimaController.klima.status eq 'KAPALI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusKapali}">
+              
+              <p:commandLink id="button3" update="button1,button2,button3" styleClass="small-box #{klimaController.klima.status eq 'KAPALI' ?  klimaController.klima.selectedColor :klimaController.klima.unselectedColor }" action="#{klimaController.setKlimaStatusKapali}">
                 <div class="inner">
                   <h3>Klima</h3>
                   <p>Kapalı</p>
@@ -75,8 +75,8 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
-              </h:form>
+              </p:commandLink>
+            
             </div><!-- ./col -->
             
           
@@ -108,8 +108,8 @@
             
             <div class="col-lg-3 col-xs-3">
               <!-- small box -->
-              <h:form>
-              <h:commandLink styleClass="small-box #{klimaController.klima.isiticiStatus.color}" action="#{klimaController.changeKlimaStatusIsitici}">
+              
+              <p:commandLink id="button4" update="button4" styleClass="small-box #{klimaController.klima.isiticiStatus.color}" action="#{klimaController.changeKlimaStatusIsitici}">
                 <div class="inner">
                   <h3>Isıtıcı</h3>
                   <p>#{klimaController.klima.isiticiStatus.message}</p>
@@ -118,8 +118,8 @@
                   <i class="ion ion-bag"></i>
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
-              </h:commandLink>
-              </h:form>
+              </p:commandLink>
+            
             </div><!-- ./col -->
             
             

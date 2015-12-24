@@ -41,6 +41,17 @@ public abstract class BaseController {
 		else 
 			context.redirect(url);
 	}
+	
+	public void saveModbus(int address,int value) throws IOException{
+		dataController.saveModbus(address, value);
+	}
+	
+	public void readModbus(int address) throws IOException{
+		//dataController.saveModbus(address, value);
+	}
+	
+	
+	
 
 	public DataController getDataController() {
 		return dataController;
