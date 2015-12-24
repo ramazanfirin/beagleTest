@@ -78,6 +78,37 @@ public class DataController {
 		
 	}
 	
+	public void saveModbusMultiple(int startAddress,int[] values) throws IOException{
+destroyTask();
+		String s="";
+		//ModbusRtuClientJssc mc = new ModbusRtuClientJssc("COM5", 9600, 8, SerialPort.PARITY_EVEN, SerialPort.STOPBITS_1, 1000, 5);
+		ModbusTcpClient mc = new ModbusTcpClient("localhost", 502, null, 0, 1000, 300, true);
+		mc.InitWriteRegistersRequest(1, startAddress, values);
+		try {
+			mc.execRequest();
+			if (mc.getResult() == AModbusClient.RESULT_OK){
+				for (int i = 0; i < values.length; i++) {
+					modbusValues[startAddress+1]=values[i];
+					s=s+","+values[i];
+				}
+				
+				
+				FacesContext context = FacesContext.getCurrentInstance();
+				context.addMessage(null, new FacesMessage("Successful,"+startAddress +"="+ s) );
+			}else
+				System.out.println("error");
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			mc.close();
+			System.out.println("Modbus yazildi");
+		}
+		startTask();
+	}
+	
 	
 	public void saveModbus(int address,int value) throws IOException{
 		destroyTask();

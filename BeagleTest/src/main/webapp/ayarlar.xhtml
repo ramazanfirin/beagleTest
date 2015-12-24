@@ -34,29 +34,29 @@
             <div class="col-lg-6 col-xs-6">
               <!-- small box -->
          
-              <form class="form-horizontal">
+           
               	<div class="box-body">
              
               <div class="form-group">
                    
 
                       <label for="exampleInputEmail1">Oda Basıncı2 : </label><br></br>
-                     <p:keyboard  keypadOnly="true" placeholder="Min" size="10">
+                     <p:keyboard value="#{ayarlarController.odaBasincDownLimit}" keypadOnly="true" placeholder="Min" size="10">
                      	<f:validateLongRange minimum="0" maximum="4000" />
                      </p:keyboard>
                       <label for="exampleInputEmail1"> -   </label>
-                      <p:keyboard  keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
-                      <p:commandButton value="Kayset" action="#{ayarlarController.saveOdaBasinci}"></p:commandButton>
+                      <p:keyboard value="#{ayarlarController.odaBasincUpLimit}" keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                      <p:commandButton value="Kayset" action="#{ayarlarController.saveOdaBasinci}" update="message"></p:commandButton>
                     </div>
                     
               
                     
                  <div class="form-group">
                       <label for="exampleInputEmail1">Nem  : </label><br></br>
-                      <p:keyboard  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
+                      <p:keyboard value="#{ayarlarController.nemDownLimit}" keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
                       <label for="exampleInputEmail1"> -   </label>
-                       <p:keyboard  keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
-                       <p:commandButton value="Kaydet" action="#{ayarlarController.saveOdaSicakligi}"></p:commandButton>
+                       <p:keyboard value="#{ayarlarController.nemUpLimit}" keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                       <p:commandButton value="Kaydet" action="#{ayarlarController.saveNem}"  update="message"></p:commandButton>
                     </div>    
                      
                     
@@ -72,27 +72,29 @@
                       
                     </div> 
                     </div>
-                    </form>
+                  
                           
             </div><!-- ./col -->
             
            
            <div class="col-lg-6 col-xs-6">
-            <form class="form-horizontal">
+            
             <div class="form-group">
                       <label for="exampleInputEmail1">Oda Sıcaklığı : </label><br></br>
-                       <p:keyboard  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
+                       <p:keyboard value="#{ayarlarController.odaSicaklikDownLimit}"  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
                       <label for="exampleInputEmail1"> -   </label>
-                       <p:keyboard  keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                       <p:keyboard  value="#{ayarlarController.odaSicaklikUpLimit}" keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                       <p:commandButton value="Kayset" action="#{ayarlarController.saveOdaSicakligi}"  update="message"></p:commandButton>
                     </div>  
                      <div class="form-group">
                       <label for="exampleInputEmail1">Filtre Basıncı : </label><br></br>
-                       <p:keyboard  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
+                       <p:keyboard value="#{ayarlarController.filtreDownLimit}" keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
                       <label for="exampleInputEmail1"> -   </label>
-                        <p:keyboard  keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                        <p:keyboard value="#{ayarlarController.filtreUpLimit}" keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                        <p:commandButton value="Kayset" action="#{ayarlarController.saveFiltre}"  update="message"></p:commandButton>
                     </div>   
                     
-                    </form>
+               
            </div>
             
                    

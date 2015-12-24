@@ -45,6 +45,9 @@ public abstract class BaseController {
 	public void saveModbus(int address,int value) throws IOException{
 		dataController.saveModbus(address, value);
 	}
+	public void saveModbusMultiple(int address,int[] value) throws IOException{
+		dataController.saveModbusMultiple(address, value);
+	}
 	
 	public void readModbus(int address) throws IOException{
 		//dataController.saveModbus(address, value);
