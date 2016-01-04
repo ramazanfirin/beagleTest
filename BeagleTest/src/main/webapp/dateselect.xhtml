@@ -11,8 +11,9 @@
 		<ui:define name="content">
 		
 		 <h:form> 
-		 <p:poll interval="3" listener="#{aydinlatmaController.update}"   update="@form" />
-		 <h:messages />
+		 <p:growl id="message" life="2000"/>
+<!-- 		 <p:poll interval="3" listener="#{aydinlatmaController.update}"   update="@form" /> -->
+		
 		<section class="content">
           <!-- Small boxes (Stat box) -->
         
@@ -53,7 +54,7 @@
                        		<f:validateLongRange minimum="0" maximum="59" />
                        </p:keyboard>
              </div>  
-             <p:commandButton value="kaydet" action="#{dateController.save}"></p:commandButton>
+             <p:commandButton value="kaydet" action="#{dateController.save}" update="message"></p:commandButton>
                       
               
              

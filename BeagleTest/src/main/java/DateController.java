@@ -19,6 +19,13 @@ public class DateController extends BaseController{
 	int dakika;
 	int saniye;
 	
+	@Override
+	void prepareData() {
+		saat = dataController.getModbusValues()[Constants.HOUR_WATCH];
+		dakika = dataController.getModbusValues()[Constants.MINUTE_WATCH];
+		saniye = dataController.getModbusValues()[Constants.SECOND_WATCH];
+	}
+	
 	public void save() throws IOException{
 	  dataController.saveModbus(Constants.HOUR_WATCH, saat);
 	  dataController.saveModbus(Constants.MINUTE_WATCH, dakika);
@@ -65,9 +72,5 @@ public class DateController extends BaseController{
 		this.saniye = saniye;
 	}
 
-	@Override
-	void prepareData() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

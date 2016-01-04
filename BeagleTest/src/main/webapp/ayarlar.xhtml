@@ -40,35 +40,49 @@
               <div class="form-group">
                    
 
-                      <label for="exampleInputEmail1">Oda Basıncı2 : </label><br></br>
-                     <p:keyboard value="#{ayarlarController.odaBasincDownLimit}" keypadOnly="true" placeholder="Min" size="10">
+                      <label for="exampleInputEmail1">Oda Basıncı : </label><br></br>
+                     <p:keyboard value="#{ayarlarController.odaBasincDownLimit}" keypadOnly="true" placeholder="Min" size="5">
                      	<f:validateLongRange minimum="0" maximum="4000" />
                      </p:keyboard>
                       <label for="exampleInputEmail1"> -   </label>
-                      <p:keyboard value="#{ayarlarController.odaBasincUpLimit}" keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                      <p:keyboard value="#{ayarlarController.odaBasincUpLimit}" keypadOnly="true" placeholder="Max" size="5"></p:keyboard>
                       <p:commandButton value="Kayset" action="#{ayarlarController.saveOdaBasinci}" update="message"></p:commandButton>
                     </div>
-                    
+                 
+                 <div class="form-group">
+                      <label for="exampleInputEmail1">Oda Sıcaklığı : </label><br></br>
+                       <p:keyboard value="#{ayarlarController.odaSicaklikDownLimit}"  keypadOnly="true" placeholder="Min" size="5"></p:keyboard>
+                      <label for="exampleInputEmail1"> -   </label>
+                       <p:keyboard  value="#{ayarlarController.odaSicaklikUpLimit}" keypadOnly="true" placeholder="Max" size="5"></p:keyboard>
+                       <p:commandButton value="Kayset" action="#{ayarlarController.saveOdaSicakligi}"  update="message"></p:commandButton>
+                    </div>  
+                     <div class="form-group">
+                      <label for="exampleInputEmail1">Filtre Basıncı : </label><br></br>
+                       <p:keyboard value="#{ayarlarController.filtreDownLimit}" keypadOnly="true" placeholder="Min" size="5"></p:keyboard>
+                      <label for="exampleInputEmail1"> -   </label>
+                        <p:keyboard value="#{ayarlarController.filtreUpLimit}" keypadOnly="true" placeholder="Max" size="5"></p:keyboard>
+                        <p:commandButton value="Kayset" action="#{ayarlarController.saveFiltre}"  update="message"></p:commandButton>
+                    </div>      
               
                     
                  <div class="form-group">
                       <label for="exampleInputEmail1">Nem  : </label><br></br>
-                      <p:keyboard value="#{ayarlarController.nemDownLimit}" keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
+                      <p:keyboard value="#{ayarlarController.nemDownLimit}" keypadOnly="true" placeholder="Min" size="5"></p:keyboard>
                       <label for="exampleInputEmail1"> -   </label>
-                       <p:keyboard value="#{ayarlarController.nemUpLimit}" keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
+                       <p:keyboard value="#{ayarlarController.nemUpLimit}" keypadOnly="true" placeholder="Max" size="5"></p:keyboard>
                        <p:commandButton value="Kaydet" action="#{ayarlarController.saveNem}"  update="message"></p:commandButton>
                     </div>    
                      
                     
                     <div class="form-group">
                       <label for="exampleInputEmail1">Sıcalık Set : </label><br></br>
-                       <p:keyboard  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
+                       <p:keyboard  keypadOnly="true" placeholder="Min" size="5"></p:keyboard>
                       
                     </div>    
                     
                      <div class="form-group">
                       <label for="exampleInputEmail1">Nem Set : </label><br></br>
-                       <p:keyboard  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
+                       <p:keyboard  keypadOnly="true" placeholder="Min" size="5"></p:keyboard>
                       
                     </div> 
                     </div>
@@ -80,21 +94,33 @@
            <div class="col-lg-6 col-xs-6">
             
             <div class="form-group">
-                      <label for="exampleInputEmail1">Oda Sıcaklığı : </label><br></br>
-                       <p:keyboard value="#{ayarlarController.odaSicaklikDownLimit}"  keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
-                      <label for="exampleInputEmail1"> -   </label>
-                       <p:keyboard  value="#{ayarlarController.odaSicaklikUpLimit}" keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
-                       <p:commandButton value="Kayset" action="#{ayarlarController.saveOdaSicakligi}"  update="message"></p:commandButton>
-                    </div>  
-                     <div class="form-group">
-                      <label for="exampleInputEmail1">Filtre Basıncı : </label><br></br>
-                       <p:keyboard value="#{ayarlarController.filtreDownLimit}" keypadOnly="true" placeholder="Min" size="10"></p:keyboard>
-                      <label for="exampleInputEmail1"> -   </label>
-                        <p:keyboard value="#{ayarlarController.filtreUpLimit}" keypadOnly="true" placeholder="Max" size="10"></p:keyboard>
-                        <p:commandButton value="Kayset" action="#{ayarlarController.saveFiltre}"  update="message"></p:commandButton>
-                    </div>   
+                      <label for="exampleInputEmail1">Etiket 1: </label><br></br>
+                       <p:keyboard value="#{ayarlarController.etiket1}" layout="qwertyBasic"  placeholder="Etiket1" maxlength="5"  size="5"></p:keyboard>
+                     <p:commandButton value="Kayset" action="#{ayarlarController.saveEtiket1}"  update="message"></p:commandButton>
+           </div>  
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Etiket 2: </label><br></br>
+                       <p:keyboard value="#{ayarlarController.etiket2}" layout="qwertyBasic"  placeholder="Etiket2" size="5"></p:keyboard>
+                     <p:commandButton value="Kayset" action="#{ayarlarController.saveEtiket2}"  update="message"></p:commandButton>
+           </div>
                     
-               
+            <div class="form-group">
+                      <label for="exampleInputEmail1">Etiket 3: </label><br></br>
+                       <p:keyboard value="#{ayarlarController.etiket3}" layout="qwertyBasic"  placeholder="Etiket3" size="5"></p:keyboard>
+                     <p:commandButton value="Kayset" action="#{ayarlarController.saveEtiket3}"  update="message"></p:commandButton>
+           </div>          
+                    
+            <div class="form-group">
+                      <label for="exampleInputEmail1">Etiket 4: </label><br></br>
+                       <p:keyboard value="#{ayarlarController.etiket4}"  layout="qwertyBasic" placeholder="Etiket4" size="5"></p:keyboard>
+                     <p:commandButton value="Kayset" action="#{ayarlarController.saveEtiket4}"  update="message"></p:commandButton>
+           </div>     
+            <div class="form-group">
+                      <label for="exampleInputEmail1">Etiket 5: </label><br></br>
+                       <p:keyboard value="#{ayarlarController.etiket5}" layout="qwertyBasic"  placeholder="Etiket5" size="5"></p:keyboard>
+                     <p:commandButton value="Kayset" action="#{ayarlarController.saveEtiket5}"  update="message"></p:commandButton>
+           </div> 
+           
            </div>
             
                    

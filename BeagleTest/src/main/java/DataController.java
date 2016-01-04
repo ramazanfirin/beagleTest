@@ -17,7 +17,7 @@ import ua.com.certa.modbus.ModbusTcpClient;
 @ApplicationScoped
 public class DataController {
 
-	public int[] modbusValues= new int[146]; 
+	public int[] modbusValues= new int[150]; 
 	private ScheduledExecutorService scheduler; 
 	//ModbusRtuClientJssc mc =null;
 	//ModbusTcpClient mc =null;
@@ -53,7 +53,7 @@ public class DataController {
 		 //if(mc==null)
 	//ModbusRtuClientJssc	mc = new ModbusRtuClientJssc("COM5", 9600, 8, SerialPort.PARITY_EVEN, SerialPort.STOPBITS_1, 1000, 5);
 	ModbusTcpClient mc = new ModbusTcpClient("localhost", 502, null, 0, 1000, 300, true);
-    mc.InitReadHoldingsRequest(1, 0, 100);
+    mc.InitReadHoldingsRequest(1, 0, 125);
 	try {
 		mc.execRequest();
 		if (mc.getResult() == AModbusClient.RESULT_OK){
