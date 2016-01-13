@@ -8,6 +8,9 @@ public class Constants {
 	public static String MESSAGE_OPEN="Acik";
 	public static String MESSAGE_CLOSE="Kapali";
 	
+	public static String MESSAGE_PRESENT="Var";
+	public static String MESSAGE_APSENT="Yok";
+	
 	
 	public static int 	ANALOG_INPUT_1	=	0	;
 	public static int 	ANALOG_INPUT_2	=	1	;

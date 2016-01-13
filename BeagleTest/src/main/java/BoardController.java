@@ -3,7 +3,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import model.AmeliyatButton;
 import constants.Constants;
+import constants.Util;
 
 @ManagedBean
 @RequestScoped
@@ -21,9 +23,13 @@ public class BoardController extends BaseController{
 	
 	private String sicaklikColor="bg-aqua";
 	
+	private AmeliyatButton ameliyatButton = new AmeliyatButton();
+	private AmeliyatButton alarmButton = new AmeliyatButton();
+	
 	@PostConstruct
 	public void init(){
 		prepareData();
+		
 	}
 	
 	public void prepareData(){
@@ -38,6 +44,21 @@ public class BoardController extends BaseController{
 		vac = String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_8]);
 		co2 = String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_9]);
 		abc = String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_10]);
+		
+		ameliyatButton.setStatus(Util.translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_11])));
+		alarmButton.setStatus(Util.translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_12])));
+	}
+	
+	public void changeStatusAmeliyatButton() throws Exception{
+		saveModbus(Constants.ANALOG_INPUT_11, Util.translate(!ameliyatButton.getStatus()));
+		ameliyatButton.setStatus(!ameliyatButton.getStatus());
+
+	}
+	
+	public void changeStatusAlarmButton() throws Exception{
+		saveModbus(Constants.ANALOG_INPUT_12, Util.translate(!alarmButton.getStatus()));
+		alarmButton.setStatus(!alarmButton.getStatus());
+
 	}
 	
 	public String getSicaklikColor() {
@@ -117,5 +138,21 @@ public class BoardController extends BaseController{
 
 	public void setAbc(String abc) {
 		this.abc = abc;
+	}
+
+	public AmeliyatButton getAmeliyatButton() {
+		return ameliyatButton;
+	}
+
+	public void setAmeliyatButton(AmeliyatButton ameliyatButton) {
+		this.ameliyatButton = ameliyatButton;
+	}
+
+	public AmeliyatButton getAlarmButton() {
+		return alarmButton;
+	}
+
+	public void setAlarmButton(AmeliyatButton alarmButton) {
+		this.alarmButton = alarmButton;
 	}
 }
