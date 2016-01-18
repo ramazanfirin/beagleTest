@@ -68,7 +68,7 @@ public class DataController {
 		e.printStackTrace();
 	}finally{
 		mc.close();
-		System.out.println("Modbus Okundu");
+		//System.out.println("Modbus Okundu");
 	}
 	
 
@@ -104,7 +104,7 @@ destroyTask();
 			e.printStackTrace();
 		}finally{
 			mc.close();
-			System.out.println("Modbus yazildi");
+			//System.out.println("Modbus yazildi");
 		}
 		startTask();
 	}
@@ -131,7 +131,7 @@ destroyTask();
 			e.printStackTrace();
 		}finally{
 			mc.close();
-			System.out.println("Modbus yazildi");
+			//System.out.println("Modbus yazildi");
 		}
 		startTask();
 	}
@@ -142,7 +142,7 @@ destroyTask();
 	    public void run() {
 	    	try {
 				updateModbusData();
-				System.out.println("Data update yapildi");
+				//System.out.println("Data update yapildi");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

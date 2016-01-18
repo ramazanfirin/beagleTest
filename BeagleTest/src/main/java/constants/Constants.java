@@ -10,7 +10,8 @@ public class Constants {
 	
 	public static String MESSAGE_PRESENT="Var";
 	public static String MESSAGE_APSENT="Yok";
-	
+
+	public static String ALAR_ICON_BACKGORUND="red";
 	
 	public static int 	ANALOG_INPUT_1	=	0	;
 	public static int 	ANALOG_INPUT_2	=	1	;

@@ -11,7 +11,7 @@
 		<ui:define name="content">
 		
 		  <h:form>
-     	<p:poll interval="3" listener="#{boardController.update}"   update="@form" />
+     	<p:poll interval="3" listener="#{boardController.update}"   update="value11,value12,value21,value22" />
      <p:growl id="message" life="2000"/>
 		
 		<section class="content">
@@ -37,8 +37,8 @@
               <!-- small box -->
               <div class="small-box #{boardController.sicaklikColor}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.sicaklik}"></h:outputLabel></h3>
-                  <p>Sıcaklık</p>
+                  <h3><h:outputLabel id="value11" value="#{boardController.value1.value}"></h:outputLabel><sup style="font-size: 20px">C</sup></h3>
+                  <p><h:outputLabel  id="value12" value="#{boardController.value1.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -51,8 +51,8 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.nem}"></h:outputLabel><sup style="font-size: 20px">%</sup></h3>
-                  <p>Nem</p>
+                  <h3><h:outputLabel id="value21" value="#{boardController.value2.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel id="value22" value="#{boardController.value2.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -65,8 +65,8 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.odaBasinci}"></h:outputLabel></h3>
-                  <p>Oda Basıncı</p>
+                  <h3><h:outputLabel value="#{boardController.value3.value}"></h:outputLabel></h3>
+                  <p><h:outputLabel value="#{boardController.value3.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
@@ -79,8 +79,8 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.odaBasinci}"/> </h3>
-                  <p>Filltre Basıncı</p>
+                  <h3><h:outputLabel value="#{boardController.value4.value}"/> </h3>
+                  <p><h:outputLabel value="#{boardController.value4.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
@@ -89,12 +89,26 @@
               </div>
             </div><!-- ./col -->
             
-            <div class="col-lg-4 col-xs-4">
+            <div class="col-lg-2 col-xs-2">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3><h:outputLabel value="#{boardController.value5.value}"/> </h3>
+                  <p><h:outputLabel value="#{boardController.value5.label}"></h:outputLabel></p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            
+            <div class="col-lg-2 col-xs-2">
             	
             		<div class="col-lg-12 col-xs-12">
               <p:commandLink id="lamba1" process="lamba1" update="lamba1,message" styleClass="small-box #{boardController.ameliyatButton.color}" action="#{boardController.changeStatusAmeliyatButton}">
                 <div class="inner">
-                  <h3>Ameliyat</h3>
+                  <h3><h:outputLabel value="#{boardController.ameliyatButton.label}" style="font-size:smaller"/></h3>
                   <p>#{boardController.ameliyatButton.message}</p>
                 </div>
                 <div class="icon">
@@ -158,13 +172,12 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
             
-            
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>N20<sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.n20}"></h:outputLabel></p>
+                  <h3><h:outputLabel value="#{boardController.value6.value}"/><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value6.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -177,8 +190,8 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>Air5<sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.air5}"></h:outputLabel></p>
+                  <h3><h:outputLabel value="#{boardController.value7.value}"/><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value7.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -191,8 +204,8 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>O2<sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.o2}"></h:outputLabel></p>
+                  <h3><h:outputLabel value="#{boardController.value8.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value8.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -205,8 +218,8 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>VAC<sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.vac}"></h:outputLabel></p>
+                  <h3><h:outputLabel value="#{boardController.value9.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value9.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -215,12 +228,26 @@
               </div>
             </div><!-- ./col -->
             
-            <div class="col-lg-4 col-xs-4">
+             <div class="col-lg-2 col-xs-2">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3><h:outputLabel value="#{boardController.value10.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value10.label}"></h:outputLabel></p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            
+            <div class="col-lg-2 col-xs-2">
             	
             		<div class="col-lg-12 col-xs-12">
               <p:commandLink id="lamba2" process="lamba2" update="lamba2,message" styleClass="small-box #{boardController.alarmButton.color}" action="#{boardController.changeStatusAlarmButton}">
                 <div class="inner">
-                  <h3>Alarm</h3>
+                  <h3><h:outputLabel value="#{boardController.alarmButton.label}" style="font-size:smaller"/></h3>
                   <p>#{boardController.alarmButton.message}</p>
                 </div>
                 <div class="icon">
@@ -246,7 +273,7 @@
             <div class="col-md-12">
               <div class="box box-default box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Gaz Değerleri</h3>
+                  <h3 class="box-title">Gaz Değerleri -2</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div><!-- /.box-tools -->
@@ -254,12 +281,13 @@
                 <div class="box-body">
             
             
+          <ui:fragment rendered="#{boardController.value11.render}">
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>N20<sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.n20}"></h:outputLabel></p>
+                  <h3><h:outputLabel value="#{boardController.value11.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value11.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -267,13 +295,15 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
+          </ui:fragment>  
             
+           <ui:fragment rendered="#{boardController.value12.render}">
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>Air5<sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.air5}"></h:outputLabel></p>
+                  <h3><h:outputLabel value="#{boardController.value12.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value12.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -281,13 +311,15 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
+          </ui:fragment>  
             
+            <ui:fragment rendered="#{boardController.value13.render}">
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>O2<sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.o2}"></h:outputLabel></p>
+                  <h3><h:outputLabel value="#{boardController.value13.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value13.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -295,13 +327,15 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
+          </ui:fragment>  
             
+            <ui:fragment rendered="#{boardController.value14.render}">
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>VAC<sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.vac}"></h:outputLabel></p>
+                  <h3><h:outputLabel value="#{boardController.value14.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value14.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -309,6 +343,23 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
+          </ui:fragment>  
+          
+          <ui:fragment rendered="#{boardController.value15.render}">
+            <div class="col-lg-2 col-xs-2">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3><h:outputLabel value="#{boardController.value15.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel value="#{boardController.value15.label}"></h:outputLabel></p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+          </ui:fragment>  
             
             
             

@@ -10,9 +10,9 @@
    <body>
       <ui:composition> 
 
-
+<h:form>
+<p:poll interval="1" listener="#{boardController.changeAlarmIconBackground}"   update="@form" />
 <section class="sidebar">
-          <!-- Sidebar user panel -->
 <!--           <div class="user-panel"> -->
 <!--             <div class="pull-left image"> -->
 <!--               <img src="AdminLTE-2.3.0/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"></img> -->
@@ -35,12 +35,14 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li>
+           <ui:fragment id="fragment">
+            <li style="background-color:#{boardController.alarmIconColor}">
               <a href="main.xhtml">
                <center> <i class="fa fa-dashboard  fa-2x"></i></center>
                 <center> Ana Sayfa</center>
               </a>
             </li>
+            </ui:fragment>
             <li>
               <a href="aydinlatma.xhtml">
                <center> <i class="fa fa-lightbulb-o fa-2x"></i></center>
@@ -94,6 +96,7 @@
            
           </ul>
         </section>
+        </h:form>
               </ui:composition>	
 
    </body>

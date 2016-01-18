@@ -51,13 +51,7 @@ void prepareData() {
 	etiket5 = prepareEtiketData(Constants.GAS_ALARM_DISPLAY_LABEL_5_CHAR_1);
 }
 
-public String prepareEtiketData(int startAddress){
-	String result="";
-	for (int i = 0; i < 5; i++) {
-		result = result+(char)dataController.getModbusValues()[startAddress+i];
-	}
-	return result;
-}
+
 public String manipulateLabel(String label){
 	int labelSize = label.length();
 	for (int i = 0; i < 5-labelSize; i++) {

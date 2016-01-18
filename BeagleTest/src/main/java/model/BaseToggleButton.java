@@ -3,6 +3,15 @@ package model;
 import constants.Constants;
 
 public class BaseToggleButton extends BaseModel{
+	public BaseToggleButton() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public BaseToggleButton(String label) {
+		super(label);
+		// TODO Auto-generated constructor stub
+	}
+
 	Boolean status=false;
 	
 	public Boolean getStatus() {
