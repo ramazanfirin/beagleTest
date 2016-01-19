@@ -10,10 +10,10 @@
 	<ui:composition template="/tags/layout.xhtml">
 		<ui:define name="content">
 		
-		  <h:form>
-     	<p:poll interval="3" listener="#{boardController.update}"   update="value11,value12,value21,value22" />
+		  <h:form id="form1">
+     	<p:poll interval="3" listener="#{boardController.update}" update="@(form),@form,form1"  />
      <p:growl id="message" life="2000"/>
-		
+		<p:fragment autoUpdate="true" id="allFragment" >
 		<section class="content">
           <!-- Small boxes (Stat box) -->
 
@@ -35,7 +35,8 @@
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box #{boardController.sicaklikColor}">
+             <p:fragment id="fragmentvalue1" autoUpdate="true">
+              <div class="small-box #{boardController.value1.color}">
                 <div class="inner">
                   <h3><h:outputLabel id="value11" value="#{boardController.value1.value}"></h:outputLabel><sup style="font-size: 20px">C</sup></h3>
                   <p><h:outputLabel  id="value12" value="#{boardController.value1.label}"></h:outputLabel></p>
@@ -45,11 +46,13 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+             <p:fragment id="fragmentvalue2" autoUpdate="true">
+              <div class="small-box #{boardController.value2.color}">
                 <div class="inner">
                   <h3><h:outputLabel id="value21" value="#{boardController.value2.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
                   <p><h:outputLabel id="value22" value="#{boardController.value2.label}"></h:outputLabel></p>
@@ -59,48 +62,55 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-yellow">
+              <p:fragment id="fragmentvalue3" autoUpdate="true">
+              <div class="small-box #{boardController.value3.color}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value3.value}"></h:outputLabel></h3>
-                  <p><h:outputLabel value="#{boardController.value3.label}"></h:outputLabel></p>
+                  <h3><h:outputLabel id="value31" value="#{boardController.value3.value}"></h:outputLabel></h3>
+                  <p><h:outputLabel id="value32" value="#{boardController.value3.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-red">
+              <p:fragment id="fragmentvalue4" autoUpdate="true">
+              <div class="small-box #{boardController.value4.color}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value4.value}"/> </h3>
-                  <p><h:outputLabel value="#{boardController.value4.label}"></h:outputLabel></p>
+                  <h3><h:outputLabel id="value41" value="#{boardController.value4.value}"/> </h3>
+                  <p><h:outputLabel id="value42" value="#{boardController.value4.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-red">
+              <p:fragment id="fragmentvalue5" autoUpdate="true">
+              <div class="small-box #{boardController.value5.color}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value5.value}"/> </h3>
-                  <p><h:outputLabel value="#{boardController.value5.label}"></h:outputLabel></p>
+                  <h3><h:outputLabel id="value51" value="#{boardController.value5.value}"/> </h3>
+                  <p><h:outputLabel id="value52" value="#{boardController.value5.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
@@ -174,78 +184,89 @@
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+               <p:fragment id="fragmentvalue6" autoUpdate="true">
+              <div class="small-box #{boardController.value6.color}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value6.value}"/><sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.value6.label}"></h:outputLabel></p>
+                  <h3><h:outputLabel id="value61" value="#{boardController.value6.value}"/><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel id="value62" value="#{boardController.value6.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+              <p:fragment id="fragmentvalue7" autoUpdate="true">
+              <div class="small-box #{boardController.value7.color}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value7.value}"/><sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.value7.label}"></h:outputLabel></p>
+                  <h3><h:outputLabel id="value71" value="#{boardController.value7.value}"/><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel id="value72" value="#{boardController.value7.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+               <p:fragment id="fragmentvalue8" autoUpdate="true">
+              <div class="small-box #{boardController.value8.color}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value8.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.value8.label}"></h:outputLabel></p>
+                  <h3><h:outputLabel id="value81" value="#{boardController.value8.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel id="value82" value="#{boardController.value8.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+               <p:fragment id="fragmentvalue9" autoUpdate="true">
+              <div class="small-box #{boardController.value9.color}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value9.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.value9.label}"></h:outputLabel></p>
+                  <h3><h:outputLabel id="value91" value="#{boardController.value9.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel id="value92" value="#{boardController.value9.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
              <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+               <p:fragment id="fragmentvalue10" autoUpdate="true">
+              <div class="small-box #{boardController.value10.color}">
                 <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value10.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
-                  <p><h:outputLabel value="#{boardController.value10.label}"></h:outputLabel></p>
+                  <h3><h:outputLabel id="value101" value="#{boardController.value10.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+                  <p><h:outputLabel id="value102" value="#{boardController.value10.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
             </div><!-- ./col -->
             
             <div class="col-lg-2 col-xs-2">
             	
             		<div class="col-lg-12 col-xs-12">
-              <p:commandLink id="lamba2" process="lamba2" update="lamba2,message" styleClass="small-box #{boardController.alarmButton.color}" action="#{boardController.changeStatusAlarmButton}">
+             <ui:fragment id="alarmFragment">
+              <p:commandLink id="alarm" process="alarm" update="alarm,message" styleClass="small-box #{boardController.alarmButton.color}" action="#{boardController.changeStatusAlarmButton}">
                 <div class="inner">
                   <h3><h:outputLabel value="#{boardController.alarmButton.label}" style="font-size:smaller"/></h3>
                   <p>#{boardController.alarmButton.message}</p>
@@ -255,6 +276,7 @@
                 </div>
                 <div class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></div>
               </p:commandLink>
+              </ui:fragment>
             </div>
             	
             </div>
@@ -280,11 +302,12 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
             
-            
-          <ui:fragment rendered="#{boardController.value11.render}">
+          
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+               <p:fragment id="fragmentvalue11"  autoUpdate="true"> 
+              <p:fragment rendered="#{boardController.value11.render}">
+              <div class="small-box #{boardController.value11.color}">
                 <div class="inner">
                   <h3><h:outputLabel value="#{boardController.value11.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
                   <p><h:outputLabel value="#{boardController.value11.label}"></h:outputLabel></p>
@@ -294,13 +317,17 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
+              </p:fragment>
             </div><!-- ./col -->
-          </ui:fragment>  
+       
             
-           <ui:fragment rendered="#{boardController.value12.render}">
+           
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+              <p:fragment id="fragmentvalue12" autoUpdate="true"> 
+              <p:fragment rendered="#{boardController.value12.render}">
+              <div class="small-box #{boardController.value12.color}">
                 <div class="inner">
                   <h3><h:outputLabel value="#{boardController.value12.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
                   <p><h:outputLabel value="#{boardController.value12.label}"></h:outputLabel></p>
@@ -310,13 +337,17 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
+              </p:fragment>
             </div><!-- ./col -->
-          </ui:fragment>  
+        
             
-            <ui:fragment rendered="#{boardController.value13.render}">
+          
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+             <p:fragment id="fragmentvalue13" autoUpdate="true"> 
+             <p:fragment rendered="#{boardController.value13.render}">
+              <div class="small-box #{boardController.value13.color}">
                 <div class="inner">
                   <h3><h:outputLabel value="#{boardController.value13.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
                   <p><h:outputLabel value="#{boardController.value13.label}"></h:outputLabel></p>
@@ -326,13 +357,17 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
+              </p:fragment>
             </div><!-- ./col -->
-          </ui:fragment>  
             
-            <ui:fragment rendered="#{boardController.value14.render}">
+    
+          
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+              <p:fragment id="fragmentvalue14" autoUpdate="true"> 
+              <p:fragment rendered="#{boardController.value14.render}">
+              <div class="small-box #{boardController.value14.color}">
                 <div class="inner">
                   <h3><h:outputLabel value="#{boardController.value14.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
                   <p><h:outputLabel value="#{boardController.value14.label}"></h:outputLabel></p>
@@ -342,13 +377,17 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
+              </p:fragment>
             </div><!-- ./col -->
-          </ui:fragment>  
+         
           
-          <ui:fragment rendered="#{boardController.value15.render}">
+         
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
-              <div class="small-box bg-green">
+              <p:fragment id="fragmentvalue15"  autoUpdate="true"> 
+              <p:fragment rendered="#{boardController.value15.render}">
+              <div class="small-box #{boardController.value15.color}">
                 <div class="inner">
                   <h3><h:outputLabel value="#{boardController.value15.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
                   <p><h:outputLabel value="#{boardController.value15.label}"></h:outputLabel></p>
@@ -358,8 +397,10 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+              </p:fragment>
+              </p:fragment>
             </div><!-- ./col -->
-          </ui:fragment>  
+          
             
             
             
@@ -376,6 +417,7 @@
             
          
 			</section>
+			</p:fragment>
 			 </h:form>
 		</ui:define>
 	</ui:composition>

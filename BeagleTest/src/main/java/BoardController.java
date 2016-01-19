@@ -1,8 +1,13 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import model.AmeliyatButton;
 import model.BaseModel;
@@ -26,6 +31,8 @@ public class BoardController extends BaseController{
 	private String co2="115";
 	private String abc="115";
 	
+	private List<BaseModel> valueList=new ArrayList<BaseModel>();
+	
 	private BaseModel value1=new BaseModel("Sıcaklık");
 	private BaseModel value2=new BaseModel("Nem");
 	private BaseModel value3=new BaseModel("Oda Basıncı");
@@ -44,6 +51,9 @@ public class BoardController extends BaseController{
 	private BaseModel value14=new BaseModel("");
 	private BaseModel value15=new BaseModel("");
 	
+	
+	
+	
 	private String sicaklikColor="bg-aqua";
 	
 	private AmeliyatButton ameliyatButton = new AmeliyatButton("Ameliyat");
@@ -53,7 +63,24 @@ public class BoardController extends BaseController{
 	private String alarmIconColor="none";
 	@PostConstruct
 	public void init(){
+		
+		valueList.add(value1);
+		valueList.add(value2);
+		valueList.add(value3);
+		valueList.add(value4);
+		valueList.add(value5);
+		valueList.add(value6);
+		valueList.add(value7);
+		valueList.add(value8);
+		valueList.add(value9);
+		valueList.add(value10);
+		valueList.add(value11);
+		valueList.add(value12);
+		valueList.add(value13);
+		valueList.add(value14);
+		valueList.add(value15);
 		prepareData();
+
 		
 	}
 	
@@ -69,7 +96,9 @@ public class BoardController extends BaseController{
 //		vac = String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_8]);
 //		co2 = String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_9]);
 //		abc = String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_10]);
-		
+		disableAllAlarms();
+		checkAlarms((dataController.getModbusValues()[Constants.ANALOG_INPUTS_ALARM_STATUS_BITS_HIGH_ALARM]));
+		checkAlarms((dataController.getModbusValues()[Constants.ANALOG_INPUTS_ALARM_STATUS_BITS_HIGH_ALARM]));
 		
 		value1.setValue(new Double(dataController.getModbusValues()[Constants.ANALOG_INPUT_1]));
 		value2.setValue(new Double(dataController.getModbusValues()[Constants.ANALOG_INPUT_2]));
@@ -92,7 +121,31 @@ public class BoardController extends BaseController{
 		
 		ameliyatButton.setStatus(Util.translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_11])));
 		alarmButton.setStatus(Util.translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_12])));
+		try {
+			checkAlarm();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	public void disableAllAlarms(){
+		for (Iterator iterator = valueList.iterator(); iterator.hasNext();) {
+			BaseModel baseModel = (BaseModel) iterator.next();
+			baseModel.setErrorStatus(false);
+		}
+	}
+	
+	public void checkAlarms(int alarms){
+		if(alarms==0)
+			return;
+		String alarmBits = Integer.toBinaryString(alarms);
+		for (int i = 0; i < alarmBits.length(); i++) {
+			String temp=alarmBits.substring(0, 1);
+			int tempint= Integer.parseInt(temp);
+			valueList.get(tempint).setErrorStatus(true);
+		}
+	}
+	
 	
 	public void prepareValuesByName(BaseModel value,int labelStartAddress,int valueAddress){
 		String label = prepareEtiketData(labelStartAddress);
@@ -114,9 +167,12 @@ public class BoardController extends BaseController{
 	}
 	
 	public void changeStatusAlarmButton() throws Exception{
-		saveModbus(Constants.ANALOG_INPUT_12, Util.translate(!alarmButton.getStatus()));
-		alarmButton.setStatus(!alarmButton.getStatus());
-
+		if(!getAlarmStatus())
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Alarm aktif degildir."));
+		else{
+			saveModbus(Constants.ANALOG_INPUT_12, Util.translate(!alarmButton.getStatus()));
+			alarmButton.setStatus(!alarmButton.getStatus());
+		}
 	}
 	
 	public void changeAlarmIconBackground() throws IOException{
