@@ -35,8 +35,8 @@ public class BoardController extends BaseController{
 	
 	private BaseModel value1=new BaseModel("Sıcaklık");
 	private BaseModel value2=new BaseModel("Nem");
-	private BaseModel value3=new BaseModel("Oda Basıncı");
-	private BaseModel value4=new BaseModel("Filtre Basıncı");
+	private BaseModel value3=new BaseModel("O.Basıncı");
+	private BaseModel value4=new BaseModel("F.Basıncı");
 	private BaseModel value5=new BaseModel("Temp");
 	
 	private BaseModel value6=new BaseModel("n20");

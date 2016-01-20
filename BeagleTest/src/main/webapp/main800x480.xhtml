@@ -24,9 +24,9 @@
          
          <div class="row">
              <div class="col-md-12">
-              <div class="box box-default box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Sıcaklık / Basınç Değerleri</h3>
+              <div class="box box-default box-solid" >
+                <div class="box-header with-border" style="padding:0px">
+                  <h4 class="box-title">Sıcaklık / Basınç Değerleri</h4>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div><!-- /.box-tools -->
@@ -39,9 +39,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
              <p:fragment id="fragmentvalue1" autoUpdate="true">
-              <div class="small-box #{boardController.value1.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value11" value="#{boardController.value1.value}"></h:outputLabel><sup style="font-size: 20px">C</sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value1.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value11" value="#{boardController.value1.value}"></h:outputLabel><sup style="font-size: 20px">C</sup></h4>
                   <p><h:outputLabel  id="value12" value="#{boardController.value1.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -55,9 +55,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
              <p:fragment id="fragmentvalue2" autoUpdate="true">
-              <div class="small-box #{boardController.value2.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value21" value="#{boardController.value2.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value2.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value21" value="#{boardController.value2.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel id="value22" value="#{boardController.value2.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -71,9 +71,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <p:fragment id="fragmentvalue3" autoUpdate="true">
-              <div class="small-box #{boardController.value3.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value31" value="#{boardController.value3.value}"></h:outputLabel></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value3.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value31" value="#{boardController.value3.value}"></h:outputLabel></h4>
                   <p><h:outputLabel id="value32" value="#{boardController.value3.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -87,9 +87,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <p:fragment id="fragmentvalue4" autoUpdate="true">
-              <div class="small-box #{boardController.value4.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value41" value="#{boardController.value4.value}"/> </h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value4.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value41" value="#{boardController.value4.value}"/> </h4>
                   <p><h:outputLabel id="value42" value="#{boardController.value4.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -103,9 +103,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <p:fragment id="fragmentvalue5" autoUpdate="true">
-              <div class="small-box #{boardController.value5.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value51" value="#{boardController.value5.value}"/> </h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value5.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value51" value="#{boardController.value5.value}"/> </h4>
                   <p><h:outputLabel id="value52" value="#{boardController.value5.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -118,10 +118,10 @@
             
             <div class="col-lg-2 col-xs-2">
             	
-            		<div class="col-lg-12 col-xs-12">
+<!--             		<div class="col-lg-12 col-xs-12"> -->
               <p:commandLink id="lamba1" process="lamba1" update="lamba1,message" styleClass="small-box #{boardController.ameliyatButton.color}" action="#{boardController.changeStatusAmeliyatButton}">
-                <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.ameliyatButton.label}" style="font-size:x-large"/></h3>
+                <div >
+                  <h4><h:outputLabel value="#{boardController.ameliyatButton.label}" style="font-size:x-large"/></h4>
                   <p>#{boardController.ameliyatButton.message}</p>
                 </div>
                 <div class="icon">
@@ -129,7 +129,7 @@
                 </div>
                 
               </p:commandLink>
-            </div>
+<!--             </div> -->
             	
             </div>
             
@@ -142,7 +142,7 @@
 <!--               <div class="col-md-3"> -->
 <!--               <div class="box box-default box-solid"> -->
 <!--                 <div class="box-header with-border"> -->
-<!--                   <h3 class="box-title">Ameliyat Durumu</h3> -->
+<!--                   <h4 class="box-title">Ameliyat Durumu</h4> -->
 <!--                   <div class="box-tools pull-right"> -->
 <!--                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button> -->
 <!--                   </div>/.box-tools -->
@@ -150,8 +150,8 @@
 <!--                 <div class="box-body"> -->
 <!--                 	 <div class="col-lg-12 col-xs-12"> -->
 <!--               <p:commandLink id="lamba1" process="lamba1" update="lamba1,message" styleClass="small-box #{boardController.ameliyatButton.color}" action="#{boardController.changeStatusAmeliyatButton}"> -->
-<!--                 <div class="inner"> -->
-<!--                   <h3>Ameliyat</h3> -->
+<!--                 <div > -->
+<!--                   <h4>Ameliyat</h4> -->
 <!--                   <p>#{boardController.ameliyatButton.message}</p> -->
 <!--                 </div> -->
 <!--                 <div class="icon"> -->
@@ -177,8 +177,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="box box-default box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Gaz Değerleri</h3>
+                <div class="box-header with-border" style="padding:0px">
+                  <h4 class="box-title">Gaz Değerleri</h4>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div><!-- /.box-tools -->
@@ -188,9 +188,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
                <p:fragment id="fragmentvalue6" autoUpdate="true">
-              <div class="small-box #{boardController.value6.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value61" value="#{boardController.value6.value}"/><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value6.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value61" value="#{boardController.value6.value}"/><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel id="value62" value="#{boardController.value6.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -204,9 +204,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
               <p:fragment id="fragmentvalue7" autoUpdate="true">
-              <div class="small-box #{boardController.value7.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value71" value="#{boardController.value7.value}"/><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value7.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value71" value="#{boardController.value7.value}"/><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel id="value72" value="#{boardController.value7.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -220,9 +220,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
                <p:fragment id="fragmentvalue8" autoUpdate="true">
-              <div class="small-box #{boardController.value8.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value81" value="#{boardController.value8.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value8.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value81" value="#{boardController.value8.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel id="value82" value="#{boardController.value8.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -236,9 +236,9 @@
             <div class="col-lg-2 col-xs-2">
               <!-- small box -->
                <p:fragment id="fragmentvalue9" autoUpdate="true">
-              <div class="small-box #{boardController.value9.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value91" value="#{boardController.value9.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value9.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value91" value="#{boardController.value9.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel id="value92" value="#{boardController.value9.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -252,9 +252,9 @@
              <div class="col-lg-2 col-xs-2">
               <!-- small box -->
                <p:fragment id="fragmentvalue10" autoUpdate="true">
-              <div class="small-box #{boardController.value10.color}">
-                <div class="inner">
-                  <h3><h:outputLabel id="value101" value="#{boardController.value10.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value10.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel id="value101" value="#{boardController.value10.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel id="value102" value="#{boardController.value10.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -270,8 +270,8 @@
             		<div class="col-lg-12 col-xs-12">
              <ui:fragment id="alarmFragment">
               <p:commandLink id="alarm" process="alarm" update="alarm,message" rendered="#{boardController.alarmStatus}" styleClass="small-box #{boardController.alarmButton.color}" action="#{boardController.changeStatusAlarmButton}">
-                <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.alarmButton.label}" style="font-size:smaller"/></h3>
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel value="#{boardController.alarmButton.label}" style="font-size:smaller"/></h4>
                   <p>#{boardController.alarmButton.message}</p>
                 </div>
                 <div class="icon">
@@ -297,8 +297,8 @@
                       <div class="row">
             <div class="col-md-12">
               <div class="box box-default box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Gaz Değerleri -2</h3>
+                <div class="box-header with-border" style="padding:0px">
+                  <h4 class="box-title">Gaz Değerleri -2</h4>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div><!-- /.box-tools -->
@@ -310,9 +310,9 @@
               <!-- small box -->
                <p:fragment id="fragmentvalue11"  autoUpdate="true"> 
               <p:fragment rendered="#{boardController.value11.render}">
-              <div class="small-box #{boardController.value11.color}">
-                <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value11.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value11.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel value="#{boardController.value11.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel value="#{boardController.value11.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -330,9 +330,9 @@
               <!-- small box -->
               <p:fragment id="fragmentvalue12" autoUpdate="true"> 
               <p:fragment rendered="#{boardController.value12.render}">
-              <div class="small-box #{boardController.value12.color}">
-                <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value12.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value12.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel value="#{boardController.value12.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel value="#{boardController.value12.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -350,9 +350,9 @@
               <!-- small box -->
              <p:fragment id="fragmentvalue13" autoUpdate="true"> 
              <p:fragment rendered="#{boardController.value13.render}">
-              <div class="small-box #{boardController.value13.color}">
-                <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value13.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value13.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel value="#{boardController.value13.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel value="#{boardController.value13.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -370,9 +370,9 @@
               <!-- small box -->
               <p:fragment id="fragmentvalue14" autoUpdate="true"> 
               <p:fragment rendered="#{boardController.value14.render}">
-              <div class="small-box #{boardController.value14.color}">
-                <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value14.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value14.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel value="#{boardController.value14.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel value="#{boardController.value14.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
@@ -390,9 +390,9 @@
               <!-- small box -->
               <p:fragment id="fragmentvalue15"  autoUpdate="true"> 
               <p:fragment rendered="#{boardController.value15.render}">
-              <div class="small-box #{boardController.value15.color}">
-                <div class="inner">
-                  <h3><h:outputLabel value="#{boardController.value15.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h3>
+              <div  style="margin-bottom:-10px" class="small-box #{boardController.value15.color}">
+                <div class="inner" style="padding-bottom:0px">
+                  <h4><h:outputLabel value="#{boardController.value15.value}"></h:outputLabel><sup style="font-size: 20px"></sup></h4>
                   <p><h:outputLabel value="#{boardController.value15.label}"></h:outputLabel></p>
                 </div>
                 <div class="icon">
