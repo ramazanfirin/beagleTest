@@ -9,9 +9,12 @@
 <h:body>
 	<ui:composition template="/tags/layout.xhtml">
 		<ui:define name="content">
+		<h:form>
+		<p:poll interval="3" listener="#{boardController.update}" update="form1"  />
+		</h:form>
 		
 		  <h:form id="form1">
-     	<p:poll interval="3" listener="#{boardController.update}" update="@(form),@form,form1"  />
+     	
      <p:growl id="message" life="2000"/>
 		<p:fragment autoUpdate="true" id="allFragment" >
 		<section class="content">
@@ -266,7 +269,7 @@
             	
             		<div class="col-lg-12 col-xs-12">
              <ui:fragment id="alarmFragment">
-              <p:commandLink id="alarm" process="alarm" update="alarm,message" styleClass="small-box #{boardController.alarmButton.color}" action="#{boardController.changeStatusAlarmButton}">
+              <p:commandLink id="alarm" process="alarm" update="alarm,message" rendered="#{boardController.alarmStatus}" styleClass="small-box #{boardController.alarmButton.color}" action="#{boardController.changeStatusAlarmButton}">
                 <div class="inner">
                   <h3><h:outputLabel value="#{boardController.alarmButton.label}" style="font-size:smaller"/></h3>
                   <p>#{boardController.alarmButton.message}</p>

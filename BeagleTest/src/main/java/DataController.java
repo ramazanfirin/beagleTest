@@ -68,7 +68,7 @@ public class DataController {
 		e.printStackTrace();
 	}finally{
 		mc.close();
-		//System.out.println("Modbus Okundu");
+		System.out.println("Modbus Okundu");
 	}
 	
 

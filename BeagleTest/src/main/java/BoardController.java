@@ -140,9 +140,11 @@ public class BoardController extends BaseController{
 			return;
 		String alarmBits = Integer.toBinaryString(alarms);
 		for (int i = 0; i < alarmBits.length(); i++) {
-			String temp=alarmBits.substring(0, 1);
-			int tempint= Integer.parseInt(temp);
-			valueList.get(tempint).setErrorStatus(true);
+			String temp=alarmBits.substring(i, i+1);
+			if(temp.equals("1")){
+				//int tempint= Integer.parseInt(i);
+				valueList.get(i).setErrorStatus(true);
+			}
 		}
 	}
 	
