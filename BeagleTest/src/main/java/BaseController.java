@@ -29,6 +29,7 @@ public abstract class BaseController {
 	public void update() throws IOException{
 		prepareData();
 		checkAlarm();
+		chechPhoneRinging();
 	}
 	
 	
@@ -39,6 +40,12 @@ public abstract class BaseController {
 			alarmStatus=true;
 		}else 
 			alarmStatus=false;
+	}
+	
+	public void chechPhoneRinging() throws IOException{
+		if(dataController.getModbusValues()[Constants.PHONE_RING]>0){
+			redirect("phone3.xhtml");
+		}
 	}
 	
 	public void redirect(String url) throws IOException{
