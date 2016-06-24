@@ -26,6 +26,14 @@ public abstract class BaseController {
 		prepareData();
 	}
 	
+	public void prepareMultipleBits(){
+		
+	}
+	
+//	public readmMultipleBits(){
+//		
+//	}
+	
 	public void update() throws IOException{
 		prepareData();
 		checkAlarm();

@@ -18,12 +18,20 @@ public class PhoneController extends BaseController{
 	int saat;
 	int dakika;
 	int saniye;
-	String phoneNumber;
+	String phoneNumber="";
 	
 	public void save() throws IOException{ 
 
-	  for (int i = 0; i < phoneNumber.length(); i++) {
-		  dataController.saveModbus(Constants.TELEPHNUM_DIG1+i, phoneNumber.charAt(i));
+	  int y=0;	
+	  String a="";
+	  for (int i = 0; i < phoneNumber.length(); i=i+2) {
+		  if(i+2>phoneNumber.length())
+			  a = phoneNumber.substring(i, i+1);
+		  else
+			  a = phoneNumber.substring(i, i+2);
+		 
+		  dataController.saveModbus(Constants.TELEPHNUM_DIG1+y, Integer.valueOf(a));
+		  y++;
 	  }
 	dataController.saveModbus(Constants.DIAL,1);
 	  
@@ -79,8 +87,36 @@ public class PhoneController extends BaseController{
 
 	@Override
 	void prepareData() {
-		// TODO Auto-generated method stub
+		if(dataController.getModbusValues()[Constants.PHONE_RING]==0)
+			return;
 		
+		int phone1 = dataController.getModbusValues()[Constants.TELEPHNUM_DIG1];
+		addNumber(phone1);
+		
+		int phone2 = dataController.getModbusValues()[Constants.TELEPHNUM_DIG2];
+		addNumber(phone2);
+		
+		int phone3 = dataController.getModbusValues()[Constants.TELEPHNUM_DIG3];
+		addNumber(phone3);
+		
+		int phone4 = dataController.getModbusValues()[Constants.TELEPHNUM_DIG4];
+		addNumber(phone4);
+		
+		int phone5 = dataController.getModbusValues()[Constants.TELEPHNUM_DIG5];
+		addNumber(phone5);
+		
+		int phone6 = dataController.getModbusValues()[Constants.TELEPHNUM_DIG6];
+		addNumber(phone6);
+	}
+	
+	public void addNumber(int phone){
+		if(phone<10){
+			String a = String.valueOf(phone);
+			phoneNumber = phoneNumber+"0"+a;
+		}else{
+			String a = String.valueOf(phone);
+			phoneNumber = phoneNumber+a.charAt(0)+a.charAt(1);
+		}
 	}
 
 	public String getPhoneNumber() {

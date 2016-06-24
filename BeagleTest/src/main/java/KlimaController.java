@@ -6,6 +6,7 @@ import javax.faces.bean.RequestScoped;
 import constants.Constants;
 import constants.Util;
 import model.Klima;
+import model.Lamba;
 
 
 @ManagedBean
@@ -14,18 +15,37 @@ public class KlimaController extends BaseController{
 
 	Klima klima= new Klima();
 	
+	Lamba tamDebi= new Lamba();
+	Lamba yarimDebi= new Lamba();
+	Lamba kapali= new Lamba();
+	Lamba isitici= new Lamba();
+	
+	int digitalPutputs;
+	String value;
 
 	@Override
 	void prepareData() {
-		if(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_9]==1)
+		digitalPutputs = dataController.getModbusValues()[Constants.DIGITAL_OUTPUTS__BITS];
+		if(digitalPutputs<0)
+			digitalPutputs=digitalPutputs*-1;
+		value = Util.convertToBinary(digitalPutputs);
+		
+//		tamDebi.setStatus(translate(Util.getBit(value, 8)));
+//		yarimDebi.setStatus(translate(Util.getBit(value, 9)));
+//		yarimDebi.setStatus(translate(Util.getBit(value, 10)));
+//		
+		
+		if(!translate(Util.getBit(value, 8)))
 			klima.setStatus(Klima.STATUS.TAM_DEBI);
-		else if (dataController.getModbusValues()[Constants.ANALOG_OUTPUT_9]==2)
+		
+		if (!translate(Util.getBit(value, 9)))
 			klima.setStatus(Klima.STATUS.YARIM_DEBI);
-		else if (dataController.getModbusValues()[Constants.ANALOG_OUTPUT_9]==3)
+		
+		if ( (!translate(Util.getBit(value, 8)) && (!translate(Util.getBit(value, 9)))))
 			klima.setStatus(Klima.STATUS.KAPALI);
 	
-	
-		klima.getIsiticiStatus().setStatus((translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_OUTPUT_10]))));
+//	
+		klima.getIsiticiStatus().setStatus(translate(Util.getBit(value, 10)));
 	}
 	
 	public Boolean translate(String a){
@@ -36,22 +56,37 @@ public class KlimaController extends BaseController{
 	}
 	
 	public void setKlimaStatusTamDebi() throws IOException{
-		saveModbus(Constants.ANALOG_OUTPUT_9,1);
+		digitalPutputs = Util.updateBit(value, 8, 1);
+		value = Util.convertToBinary(digitalPutputs);
+		
+		digitalPutputs = Util.updateBit(value, 9, 0);
+		saveModbus(Constants.DIGITAL_OUTPUTS__BITS, digitalPutputs);
+
 		klima.setStatus(Klima.STATUS.TAM_DEBI);
 	}
 	
 	public void setKlimaStatusYarimDebi() throws IOException{
-		saveModbus(Constants.ANALOG_OUTPUT_9,2);
+		digitalPutputs = Util.updateBit(value, 9, 1);
+		value = Util.convertToBinary(digitalPutputs);
+		
+		digitalPutputs = Util.updateBit(value, 8, 0);
+		saveModbus(Constants.DIGITAL_OUTPUTS__BITS, digitalPutputs);
+
 		klima.setStatus(Klima.STATUS.YARIM_DEBI);	
 	}
 
 	public void setKlimaStatusKapali() throws IOException{
-		saveModbus(Constants.ANALOG_OUTPUT_9,3);
+		digitalPutputs = Util.updateBit(value, 9, 0);
+		value = Util.convertToBinary(digitalPutputs);
+		
+		digitalPutputs = Util.updateBit(value, 8, 0);
+		saveModbus(Constants.DIGITAL_OUTPUTS__BITS, digitalPutputs);
 		klima.setStatus(Klima.STATUS.KAPALI);
 	}
 	
 	public void changeKlimaStatusIsitici() throws IOException{
-		saveModbus(Constants.ANALOG_OUTPUT_10,Util.translate(!klima.getIsiticiStatus().getStatus()));
+		digitalPutputs = Util.updateBit(value, 10, Util.translate(!klima.getIsiticiStatus().getStatus()));
+		saveModbus(Constants.DIGITAL_OUTPUTS__BITS, digitalPutputs);
 		klima.getIsiticiStatus().setStatus(!klima.getIsiticiStatus().getStatus());
 	}
 

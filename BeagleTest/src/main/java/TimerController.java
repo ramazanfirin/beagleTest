@@ -2,13 +2,13 @@
 
 import java.io.IOException;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import constants.Constants;
 
 @ManagedBean
-@ApplicationScoped
+@RequestScoped
 public class TimerController extends BaseController{
 
 public void startStop() throws IOException{

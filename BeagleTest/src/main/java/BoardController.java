@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
@@ -16,7 +17,7 @@ import constants.Constants;
 import constants.Util;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class BoardController extends BaseController{
 	private String sicaklik="34";
 	private String nem="53";
@@ -61,6 +62,11 @@ public class BoardController extends BaseController{
 	
 	
 	private String alarmIconColor="none";
+	
+	
+	int digitalPutputs;
+	String value;
+	
 	@PostConstruct
 	public void init(){
 		
@@ -79,9 +85,19 @@ public class BoardController extends BaseController{
 		valueList.add(value13);
 		valueList.add(value14);
 		valueList.add(value15);
-		prepareData();
-
 		
+
+		digitalPutputs = dataController.getModbusValues()[Constants.DIGITAL_OUTPUTS__BITS];
+		if(digitalPutputs<0)
+			digitalPutputs=digitalPutputs*-1;
+		value = Util.convertToBinary(digitalPutputs);
+		
+		prepareData();
+	}
+	
+	public void test1() throws IOException{
+		dataController.updateModbusData();
+		System.out.println("test bitti");
 	}
 	
 	public void prepareData(){
@@ -106,11 +122,17 @@ public class BoardController extends BaseController{
 		value4.setValue(new Double(dataController.getModbusValues()[Constants.ANALOG_INPUT_4]));
 		value5.setValue(new Double(0));
 		
-		value6.setValue(new Double(dataController.getModbusValues()[Constants.ANALOG_INPUT_6]));
-		value7.setValue(new Double(dataController.getModbusValues()[Constants.ANALOG_INPUT_7]));
-		value8.setValue(new Double(dataController.getModbusValues()[Constants.ANALOG_INPUT_8]));
-		value9.setValue(new Double(dataController.getModbusValues()[Constants.ANALOG_INPUT_9]));
-		value10.setValue(new Double(dataController.getModbusValues()[Constants.ANALOG_INPUT_10]));
+		
+		int inputs = dataController.getModbusValues()[Constants.DIGITAL_INPUTS_STATUS_BITS];
+		if(inputs<0)
+			inputs=inputs*-1;
+		String inputValues = Util.convertToBinary(inputs);
+		
+		value6.setValue(new Double(Util.getBit(inputValues, 0)+Util.getBit(inputValues, 1)));
+		value7.setValue(new Double(Util.getBit(inputValues, 2)+Util.getBit(inputValues, 3)));
+		value8.setValue(new Double(Util.getBit(inputValues, 4)+Util.getBit(inputValues, 5)));
+		value9.setValue(new Double(Util.getBit(inputValues, 6)+Util.getBit(inputValues, 7)));
+		value10.setValue(new Double(Util.getBit(inputValues, 8)+Util.getBit(inputValues, 9)));
 		
 		prepareValuesByName(value11,Constants.GAS_ALARM_DISPLAY_LABEL_1_CHAR_1,Constants.ANALOG_INPUT_11);
 		prepareValuesByName(value12,Constants.GAS_ALARM_DISPLAY_LABEL_2_CHAR_1,Constants.ANALOG_INPUT_12);
@@ -118,8 +140,8 @@ public class BoardController extends BaseController{
 		prepareValuesByName(value14,Constants.GAS_ALARM_DISPLAY_LABEL_4_CHAR_1,Constants.ANALOG_INPUT_14);
 		prepareValuesByName(value15,Constants.GAS_ALARM_DISPLAY_LABEL_5_CHAR_1,Constants.ANALOG_INPUT_15);
 		
-		
-		ameliyatButton.setStatus(Util.translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_11])));
+		ameliyatButton.setStatus(Util.translate(Util.getBit(value, 11)));
+		//ameliyatButton.setStatus(Util.translate(Util.getBit(value, 0)));
 		alarmButton.setStatus(Util.translate(String.valueOf(dataController.getModbusValues()[Constants.ANALOG_INPUT_12])));
 		try {
 			checkAlarm();
@@ -163,7 +185,8 @@ public class BoardController extends BaseController{
 	}
 	
 	public void changeStatusAmeliyatButton() throws Exception{
-		saveModbus(Constants.ANALOG_INPUT_11, Util.translate(!ameliyatButton.getStatus()));
+		digitalPutputs = Util.updateBit(value, 11, Util.translate(!ameliyatButton.getStatus()));
+		saveModbus(Constants.DIGITAL_OUTPUTS__BITS, digitalPutputs);
 		ameliyatButton.setStatus(!ameliyatButton.getStatus());
 
 	}

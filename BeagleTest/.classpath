@@ -28,14 +28,18 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jssc.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/PLCComModBus.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0"/>
+	<classpathentry kind="lib" path="/lib_modbus/jssc-2.6.0-streams.jar"/>
+	<classpathentry kind="lib" path="/lib_modbus/nrjavaserial-3.8.8.jar"/>
+	<classpathentry kind="lib" path="/lib_modbus/slf4j-api-1.7.13.jar"/>
+	<classpathentry kind="lib" path="/lib_modbus/slf4j-log4j12-1.7.13.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/modbus-mini-0.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jssc.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/PLCComModBus.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/modbus-mini-0.4.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

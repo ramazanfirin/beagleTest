@@ -10,21 +10,35 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import jssc.SerialPort;
+import jssc.SerialPortList;
 import ua.com.certa.modbus.AModbusClient;
+import ua.com.certa.modbus.ModbusRtuClientJssc;
 import ua.com.certa.modbus.ModbusTcpClient;
 
 @ManagedBean(name="dataController")
 @ApplicationScoped
 public class DataController {
 
+	int slaveAddress  = 33;
+	//String comportName="/dev/ttyAMA0";
+	String comportName="COM1";
+	
 	public int[] modbusValues= new int[150]; 
 	private ScheduledExecutorService scheduler; 
 	//ModbusRtuClientJssc mc =null;
 	//ModbusTcpClient mc =null;
 	
+	private String hostName="localhost";
+	//private String hostName="ec2-52-33-113-242.us-west-2.compute.amazonaws.com";
+	
 	@PostConstruct
 	public void init() {
 		try {
+			String[] portNames = SerialPortList.getPortNames();
+		    for(int i = 0; i < portNames.length; i++){
+		        System.out.println(portNames[i]);
+		    }
 			updateModbusData();
 			startTask();
 		} catch (Exception e) {
@@ -33,6 +47,12 @@ public class DataController {
 		}
 	
 		//mc = new ModbusRtuClientJssc("COM5", 9600, 8, SerialPort.PARITY_EVEN, SerialPort.STOPBITS_1, 1000, 5);
+	}
+	
+	public AModbusClient getModbusClient(){
+		//ModbusRtuClientJssc	mc = new ModbusRtuClientJssc(comportName, 9600, 8, SerialPort.PARITY_NONE, SerialPort.STOPBITS_1, 1000, 5);
+		ModbusTcpClient mc = new ModbusTcpClient(hostName, 502, null, 0, 1000, 300, true);
+		return mc;
 	}
 
 	@PreDestroy
@@ -51,17 +71,21 @@ public class DataController {
 	
 	public void updateModbusData() throws IOException{
 		 //if(mc==null)
-	//ModbusRtuClientJssc	mc = new ModbusRtuClientJssc("COM5", 9600, 8, SerialPort.PARITY_EVEN, SerialPort.STOPBITS_1, 1000, 5);
-	ModbusTcpClient mc = new ModbusTcpClient("localhost", 502, null, 0, 1000, 300, true);
-    mc.InitReadHoldingsRequest(1, 0, 125);
+		AModbusClient mc = getModbusClient();
+    mc.InitReadHoldingsRequest(slaveAddress, 0, 125);
 	try {
 		mc.execRequest();
 		if (mc.getResult() == AModbusClient.RESULT_OK){
 			for (int i = 0; i < mc.getResponseCount(); i++)
 				modbusValues[i]= mc.getResponseRegister(mc.getResponseAddress() + i);
-			}else
-				System.out.println("error");
-		
+		}else{
+			System.out.println("error="+mc.getResult());
+			if (mc.getResult() == AModbusClient.RESULT_EXCEPTION){
+				System.out.println("exception cod="+mc.getExceptionCode());
+				System.out.println(mc.getResultAsString());
+			}
+			
+		}
 		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -81,8 +105,7 @@ public class DataController {
 	public void saveModbusMultiple(int startAddress,int[] values) throws IOException{
 destroyTask();
 		String s="";
-		//ModbusRtuClientJssc mc = new ModbusRtuClientJssc("COM5", 9600, 8, SerialPort.PARITY_EVEN, SerialPort.STOPBITS_1, 1000, 5);
-		ModbusTcpClient mc = new ModbusTcpClient("localhost", 502, null, 0, 1000, 300, true);
+		AModbusClient mc = getModbusClient();
 		mc.InitWriteRegistersRequest(1, startAddress, values);
 		try {
 			mc.execRequest();
@@ -113,9 +136,8 @@ destroyTask();
 	public void saveModbus(int address,int value) throws IOException{
 		destroyTask();
 		
-		//ModbusRtuClientJssc mc = new ModbusRtuClientJssc("COM5", 9600, 8, SerialPort.PARITY_EVEN, SerialPort.STOPBITS_1, 1000, 5);
-		ModbusTcpClient mc = new ModbusTcpClient("localhost", 502, null, 0, 1000, 300, true);
-		mc.InitWriteRegisterRequest(1, address, value);
+		AModbusClient mc = getModbusClient();
+		mc.InitWriteRegisterRequest(slaveAddress, address, value);
 		try {
 			mc.execRequest();
 			if (mc.getResult() == AModbusClient.RESULT_OK){
